@@ -1,0 +1,10 @@
+Inventory system
+
+breath of the wild: seperate slots for different item types
+terraria: equpided slots, spells are items, weapons are selected using quickslot
+
+Attack system
+terraria: attack animation with swinging sword
+
+Controls
+Hollow knight: literally just stole their controls so far lol
