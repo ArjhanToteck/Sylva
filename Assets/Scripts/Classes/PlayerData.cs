@@ -11,7 +11,7 @@ public class PlayerData
 	public float speed = 60f;
 	public float defense = 0f;
 	public int selectedWeapon = 1;
-	public int selectedSpell = 1;
+	public int selectedSpell = 0;
 
 	// hair isn't an item like armor, so must be tracked in PlayerData
 	public Texture2D hair;
@@ -27,7 +27,7 @@ public class PlayerData
 	[NonSerialized]
 	public List<Item.Weapon> weapons = new List<Item.Weapon>(new Item.Weapon[]{
 		Item.items.apprenticeShortSword,
-		Item.items.firstOfArdor,
+		Item.items.fistOfArdor,
 		Item.items.steelWarHammer,
 		Item.items.flail,
 		Item.items.viperKnife,
@@ -37,9 +37,7 @@ public class PlayerData
 
 	[NonSerialized]
 	public List<Item.Spell> spells = new List<Item.Spell>(new Item.Spell[]{
-		Item.items.bouncingFlame,
 		Item.items.acidSpray,
-		Item.items.bouncingFlame,
 		Item.items.tempest
 	});
 

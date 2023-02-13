@@ -199,14 +199,20 @@ public class Item
 
 		public Spell bouncingFlame = new Spell(
 			"Bouncing Flame",
-			"Creates a ball that bounces around and hits enemies. Pretty self explanatory.",
+			"Creates a fireball that bounces around and hits enemies. Pretty self explanatory.",
 			0.9f
 		);
 
 		public Spell tempest = new Spell(
 			"Tempest",
 			"Summons lightning to strike down enemies around you.",
-			1.25f
+			2f
+		);
+
+		public Spell minorHealing = new Spell(
+			"Minor Healing",
+			"Heals a small amout of health.",
+			1.5f
 		);
 
 		// weapons
@@ -240,7 +246,7 @@ public class Item
 			 new Vector2(10f, 8f)
 		);
 
-		public Weapon firstOfArdor = new Weapon
+		public Weapon fistOfArdor = new Weapon
 		(
 			"Fist of Ardor",
 			"This blade of pure silver burns with the power of Ardor, god of justice. Striking an enemy lights them on fire.",
@@ -261,7 +267,7 @@ public class Item
 		public Weapon steelWarHammer = new Weapon
 		(
 			"Steel War Hammer",
-			"Because they double as a tool, hammers like these common among the nomadic warriors of the north. They're slow, but strong.",
+			"Because they double as a tool, hammers like these are common among the nomads in the north. They're slow, but strong.",
 			 7,
 			 0.4f,
 			 new Vector2(15f, 8f)
@@ -270,7 +276,7 @@ public class Item
 		public Weapon viperKnife = new Weapon
 		(
 			"Viper Knife",
-			"They say the only thing you see is a streak of white before you realize you're bleeding out.",
+			"The only thing you'll see is a streak of white before you realize you're bleeding out.",
 			 3,
 			 1.25f,
 			 new Vector2(5f, 8f)
@@ -283,8 +289,18 @@ public class Item
 			"Flail",
 			"Spike ball on chain. Great weapon.",
 			 3,
+			 0.6f,
+			 new Vector2(7f, 7f),
+			 8f
+		);
+
+		public Weapon.ChainWeapon serpentTongue = new Weapon.ChainWeapon
+		(
+			"Serpent Tongue",
+			"This flail will lash out and poison your enemies, much like a snake.",
+			 4,
 			 0.75f,
-			 new Vector2(8f, 8f),
+			 new Vector2(9f, 9f),
 			 8f
 		);
 	}
