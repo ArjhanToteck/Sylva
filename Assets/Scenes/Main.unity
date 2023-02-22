@@ -7427,6 +7427,10 @@ MonoBehaviour:
       icon: {fileID: 21300000, guid: cb5e624538c77454e885b37a879fafd2, type: 3}
       sprite: {fileID: 21300000, guid: cb5e624538c77454e885b37a879fafd2, type: 3}
       controller: {fileID: 793498531443850031, guid: a1b0a6f41f1dfd047838d4e3a11bac5d, type: 3}
+    bouncingFlame:
+      icon: {fileID: 0}
+      sprite: {fileID: 0}
+      controller: {fileID: 0}
     tempest:
       icon: {fileID: 21300000, guid: 7e9e14e13f58cd04099d0cd1f987f12f, type: 3}
       sprite: {fileID: 21300000, guid: 7e9e14e13f58cd04099d0cd1f987f12f, type: 3}
@@ -7447,7 +7451,7 @@ MonoBehaviour:
       icon: {fileID: 21300000, guid: 68bcd512715db3b45851644646456178, type: 3}
       sprite: {fileID: 21300000, guid: 68bcd512715db3b45851644646456178, type: 3}
       controller: {fileID: 4314822857358087215, guid: 75742c1b1ed5aac408fa4a7863201611, type: 3}
-    firstOfArdor:
+    fistOfArdor:
       icon: {fileID: 21300000, guid: 937f94ad734cacd4899650e908ea83b6, type: 3}
       sprite: {fileID: 21300000, guid: 937f94ad734cacd4899650e908ea83b6, type: 3}
       controller: {fileID: 9060664754648554158, guid: bc6701480a1a52b49a53b2de3fefa0e5, type: 3}
@@ -7468,6 +7472,11 @@ MonoBehaviour:
       sprite: {fileID: 21300000, guid: 38cbb97e49b829c4ea6a3c052a43ddd0, type: 3}
       controller: {fileID: 0}
       chainSprite: {fileID: 21300000, guid: 8df54fed6e6d7904eb97586245e05443, type: 3}
+    serpentTongue:
+      icon: {fileID: 0}
+      sprite: {fileID: 0}
+      controller: {fileID: 0}
+      chainSprite: {fileID: 0}
 --- !u!1 &1216524903
 GameObject:
   m_ObjectHideFlags: 0
