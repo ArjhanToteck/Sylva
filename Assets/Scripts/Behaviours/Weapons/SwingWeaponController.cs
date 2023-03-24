@@ -15,8 +15,8 @@ public class SwingWeaponController : MonoBehaviour
 	// events for controller children
 	public List<Action<Collider2D>> onHitEvents = new List<Action<Collider2D>>();
 	public List<Action<Collider2D>> onHitEnemyEvents = new List<Action<Collider2D>>();
-	public List<Action> onSwingEvents = new List<Action>();
-	public List<Action> onSwingFinishEvents = new List<Action>();
+	public List<Action> onAttackEvents = new List<Action>();
+	public List<Action> onAttackFinishEvents = new List<Action>();
 
 	void OnEnable()
 	{
@@ -73,7 +73,7 @@ public class SwingWeaponController : MonoBehaviour
 			playerController.swingAttackProgress = -1f;
 
 			// calls all events for onSwingFinish
-			foreach (Action action in onSwingFinishEvents)
+			foreach (Action action in onAttackFinishEvents)
 			{
 				action();
 			}
@@ -90,7 +90,7 @@ public class SwingWeaponController : MonoBehaviour
 	public void TriggerOnSwingEvents()
 	{
 		// calls all events for onSwing
-		foreach (Action action in onSwingEvents)
+		foreach (Action action in onAttackEvents)
 		{
 			action();
 		}
@@ -100,7 +100,7 @@ public class SwingWeaponController : MonoBehaviour
 	{
 		onHitEvents.Clear();
 		onHitEnemyEvents.Clear();
-		onSwingEvents.Clear();
-		onSwingFinishEvents.Clear();
+		onAttackEvents.Clear();
+		onAttackFinishEvents.Clear();
 	}
 }

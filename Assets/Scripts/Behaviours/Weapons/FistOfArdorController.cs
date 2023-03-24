@@ -34,13 +34,13 @@ public class FistOfArdorController : MonoBehaviour
 		}));
 
 		// starts fire trail on swing
-		swingWeaponController.onSwingEvents.Add(new Action(() =>
+		swingWeaponController.onAttackEvents.Add(new Action(() =>
 		{
 			fireTrail.GetComponent<ParticleSystem>().Play();
 		}));
 
 		// stops fire trail on swing finish
-		swingWeaponController.onSwingFinishEvents.Add(new Action(() =>
+		swingWeaponController.onAttackFinishEvents.Add(new Action(() =>
 		{
 			fireTrail.GetComponent<ParticleSystem>().Stop();
 		}));

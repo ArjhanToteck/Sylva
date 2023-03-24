@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,13 @@ public class ChainWeaponController : MonoBehaviour
 
     public bool goingForward = true;
 
-	void OnEnable()
+    // events for controller children
+    public List<Action<Collider2D>> onHitEvents = new List<Action<Collider2D>>();
+    public List<Action<Collider2D>> onHitEnemyEvents = new List<Action<Collider2D>>();
+    public List<Action> onAttackEvents = new List<Action>();
+    public List<Action> onAttackFinishEvents = new List<Action>();
+
+    void OnEnable()
     {
 		playerController.chainAttackFinished = false;
 
@@ -111,4 +118,12 @@ public class ChainWeaponController : MonoBehaviour
 	{
 		playerController.chainAttackFinished = true;
 	}
+
+    public void ClearEvents()
+    {
+        onHitEvents.Clear();
+        onHitEnemyEvents.Clear();
+        onAttackEvents.Clear();
+        onAttackFinishEvents.Clear();
+    }
 }

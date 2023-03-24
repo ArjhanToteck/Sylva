@@ -218,10 +218,10 @@ public class PlayerController : MonoBehaviour
 				castSpell = false;
 			}
 
-				// falling
+			// falling
 
-				// falling if not on ground and accelerating downards
-				falling = !controller.grounded; //&& rb.velocity.y < -0.1;
+			// falling if not on ground and accelerating downards
+			falling = !controller.grounded; //&& rb.velocity.y < -0.1;
 
 			// loops through animators to set params
 			foreach (FieldInfo fieldInfo in parts.GetType().GetFields())
@@ -489,24 +489,41 @@ public class PlayerController : MonoBehaviour
 
 	public void LoadWeapon()
 	{
-		// TODO: rework for chain weapons
-		// clears old events
-		parts.weapon.transform.Find("SwingWeapon").GetComponent<SwingWeaponController>().ClearEvents();
+        // removes old controller if applicable
+        Transform oldController = parts.weapon.transform.Find("Controller");
 
-		// removes old controller if applicable
-		Transform oldController = parts.weapon.transform.Find("Controller");
+        if (!!oldController)
+        {
+            Destroy(oldController.gameObject);
+        }
 
-		if (!!oldController)
-		{
-			Destroy(oldController.gameObject);
-		}
+        // chain weapon controller
+        // TODO: test this
+        if (parts.weapon.GetType() == typeof(Item.Weapon.ChainWeapon))
+        {
+            // clears old events
+            parts.weapon.transform.Find("ChainWeapon").GetComponent<ChainWeaponController>().ClearEvents();
 
-		// adds controller as child if applicable
-		if (data.weapons[data.selectedWeapon].controller != null)
-		{
-			GameObject controllerChild = Instantiate(data.weapons[data.selectedWeapon].controller, parts.weapon.transform);
-			controllerChild.name = "Controller";
-		}
+            // adds controller as child if applicable
+            if (data.weapons[data.selectedWeapon].controller != null)
+            {
+                GameObject controllerChild = Instantiate(data.weapons[data.selectedWeapon].controller, parts.weapon.transform);
+                controllerChild.name = "Controller";
+            }
+        }
+        // swing weapon controller
+        else
+        {
+            // clears old events
+            parts.weapon.transform.Find("SwingWeapon").GetComponent<SwingWeaponController>().ClearEvents();
+
+            // adds controller as child if applicable
+            if (data.weapons[data.selectedWeapon].controller != null)
+            {
+                GameObject controllerChild = Instantiate(data.weapons[data.selectedWeapon].controller, parts.weapon.transform);
+                controllerChild.name = "Controller";
+            }
+        }		
 	}
 
 	public void LoadSpell()
