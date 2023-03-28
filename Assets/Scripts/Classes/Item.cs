@@ -205,7 +205,7 @@ public class Item
 
 		public Spell tempest = new Spell(
 			"Tempest",
-			"Summons lightning to strike down enemies around you.",
+			"Summons lightning to strike foes around you.",
 			2f
 		);
 
@@ -240,7 +240,7 @@ public class Item
 		public Weapon electricGuitar = new Weapon
 		(
 			"Electric Guitar",
-			"Confuse your enemies by smacking them with an actual damn guitar.",
+			"Confuse your enemies by smacking them with a literal damn guitar.",
 			 5,
 			 0.5f,
 			 new Vector2(10f, 8f)
