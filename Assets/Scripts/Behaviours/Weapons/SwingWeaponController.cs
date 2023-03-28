@@ -7,7 +7,7 @@ public class SwingWeaponController : MonoBehaviour
 	public Item.Weapon weapon;
 	public PlayerController playerController;
 	public BoxCollider2D collider;
-	public SpriteRenderer renderer;
+	public SpriteRenderer spriteRenderer;
 	public Animator animator;
 
 	public List<SpriteRenderer> armRenderers = new List<SpriteRenderer>();
@@ -24,7 +24,7 @@ public class SwingWeaponController : MonoBehaviour
 		weapon = playerController.weaponSelectedBeforeAttack;
 
 		// sets sprite
-		renderer.sprite = weapon.sprite;
+		spriteRenderer.sprite = weapon.sprite;
 
 		// sets collider size to diagonal length of weapon
 		collider.size = new Vector2(weapon.sprite.bounds.extents.x * Mathf.Sqrt(2) + 0.5f, weapon.sprite.bounds.extents.x * Mathf.Sqrt(2) + 0.5f);

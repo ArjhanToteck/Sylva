@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
 	public CharacterController2D controller;
 	public GameObject exclamationPoint;
 	public Rigidbody2D rigidbody;
-	public ParticleSystem particleSystem;
+	public ParticleSystem particles;
 
 	[Header("Player")]
 	public GameObject player;
@@ -82,7 +82,7 @@ public class EnemyController : MonoBehaviour
 	public void TakeHit(int damage, Vector2 knockback, bool physicalHit = true)
 	{
 		// plays particle system
-		if(!!particleSystem && physicalHit) particleSystem.Play();
+		if(!!particles && physicalHit) particles.Play();
 
 		// takes damage
 		data.health -= damage;

@@ -11,8 +11,8 @@ public class DialogueManager : MonoBehaviour
 	public GameObject canvas;
 
 	[Header("Parameters")]
-	public string text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.";
-	public string name = "Name";
+	public string dialogue = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.";
+	public string speakerName = "Name";
 	public float duration = 5f;
 	public float interval = 0.1f;
 
@@ -24,7 +24,7 @@ public class DialogueManager : MonoBehaviour
 
 	void SetName(string name)
 	{
-		this.name = name;
+		this.speakerName = name;
 	}
 
 	// Start is called before the first frame update
@@ -32,9 +32,9 @@ public class DialogueManager : MonoBehaviour
 	{
 		canvas.SetActive(true);
 
-		text = animationEvent.stringParameter;
+		dialogue = animationEvent.stringParameter;
 		duration = animationEvent.floatParameter;
-		name = animationEvent.intParameter > 0 ? name : null;
+		speakerName = animationEvent.intParameter > 0 ? speakerName : null;
 
 		StartCoroutine(RevealText());
 	}
@@ -42,18 +42,18 @@ public class DialogueManager : MonoBehaviour
 	IEnumerator RevealText()
 	{
 		// parses text
-		DialogueData dialogueData = GetDialogueData(text);
+		DialogueData dialogueData = GetDialogueData(dialogue);
 
 		// sets text and name
 		textObject.text = dialogueData.TMPParsedText;
-		if(name == null)
+		if(speakerName == null)
 		{
 			nameObject.transform.parent.gameObject.SetActive(false);
 		}
 		else
 		{
 			nameObject.transform.parent.gameObject.SetActive(true);
-			nameObject.text = name;
+			nameObject.text = speakerName;
 		}
 
 		// hides all characters

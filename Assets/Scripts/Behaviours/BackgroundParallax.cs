@@ -7,7 +7,7 @@ public class BackgroundParallax : MonoBehaviour
 
     public float parallaxIntensity;
 
-	public GameObject camera;
+	public GameObject mainCamera;
 
     void Start()
     {
@@ -19,10 +19,10 @@ public class BackgroundParallax : MonoBehaviour
     void FixedUpdate()
 	{
         // gets position relative to camera
-        float cameraOffset = camera.transform.position.x * (1 - parallaxIntensity);
+        float cameraOffset = mainCamera.transform.position.x * (1 - parallaxIntensity);
 
         // calculates distance
-        float distance = camera.transform.position.x * parallaxIntensity;
+        float distance = mainCamera.transform.position.x * parallaxIntensity;
 
         // moves background
         transform.position = new Vector3(startPosition + distance, transform.position.y, transform.position.z);
