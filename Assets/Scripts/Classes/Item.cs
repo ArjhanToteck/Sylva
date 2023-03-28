@@ -279,7 +279,7 @@ public class Item
 			"The only thing you'll see is a streak of white before you realize you're bleeding out.",
 			 3,
 			 1.25f,
-			 new Vector2(5f, 8f)
+			 new Vector2(4f, 4f)
 		);
 
 		// chain weapons
