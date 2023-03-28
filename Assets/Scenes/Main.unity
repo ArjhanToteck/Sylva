@@ -7470,7 +7470,7 @@ MonoBehaviour:
     flail:
       icon: {fileID: 21300000, guid: 126641396b6a0a64083e9a3716379393, type: 3}
       sprite: {fileID: 21300000, guid: 38cbb97e49b829c4ea6a3c052a43ddd0, type: 3}
-      controller: {fileID: 0}
+      controller: {fileID: 9060664754648554158, guid: 6c041179268a744488947f8e48aa2fb7, type: 3}
       chainSprite: {fileID: 21300000, guid: 8df54fed6e6d7904eb97586245e05443, type: 3}
     serpentTongue:
       icon: {fileID: 0}

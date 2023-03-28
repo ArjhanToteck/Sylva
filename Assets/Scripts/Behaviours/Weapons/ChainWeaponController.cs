@@ -55,7 +55,13 @@ public class ChainWeaponController : MonoBehaviour
 
 		// positions head at origin
 		head.transform.position = origin.position;
-	}
+
+        // calls all events for onAttack
+        foreach (Action action in onAttackEvents)
+        {
+            action();
+        }
+    }
 
     void Update()
     {
@@ -107,17 +113,35 @@ public class ChainWeaponController : MonoBehaviour
 
 		if (goingForward) goingForward = false;
 
-		// checks if enemy
-		if (collider.CompareTag("Enemy"))
+        // calls all events for onHit
+        foreach (Action<Collider2D> action in onHitEvents)
+        {
+            action(collider);
+        }
+
+        // checks if enemy
+        if (collider.CompareTag("Enemy"))
 		{
 			weapon.OnHit(gameObject, collider);
-		}
+
+            // calls all events for onHitEnemy
+            foreach (Action<Collider2D> action in onHitEnemyEvents)
+            {
+                action(collider);
+            }
+        }
 	}
 
 	void OnDisable()
 	{
 		playerController.chainAttackFinished = true;
-	}
+
+        // calls all events for onAttackFinish
+        foreach (Action action in onAttackFinishEvents)
+        {
+            action();
+        }
+    }
 
     public void ClearEvents()
     {

@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FistOfArdorController : MonoBehaviour
+public class SerpentTongue : MonoBehaviour
 {
-	SwingWeaponController swingWeaponController;
+	ChainWeaponController chainWeaponController;
 
 	public GameObject burnEffect;
 	public GameObject fireTrail;
@@ -15,32 +15,32 @@ public class FistOfArdorController : MonoBehaviour
 	// Start is called before the first frame update (as soon as weapon is equipped)
 	void Start()
 	{
-		// loads swing weapon controller
-		swingWeaponController = transform.parent.Find("SwingWeapon").GetComponent<SwingWeaponController>();
+		// loads chain weapon controller
+		chainWeaponController = transform.parent.Find("ChainWeapon").GetComponent<ChainWeaponController>();
 
 		// clones fire trail so it isn't deleted when weapon is unequipped
 		fireTrail = Instantiate(fireTrail);
 
-        // adds event to be played when weapon hit enemy
-        swingWeaponController.onHitEnemyEvents.Add(new Action<Collider2D>((Collider2D collider) =>
-        {
-            // checks if not already burning
-            if (!collider.transform.Find("BurnEffect"))
-            {
-                // adds burn effect to enemy
-                GameObject burnEffectClone = Instantiate(burnEffect);
-                burnEffectClone.GetComponent<BurnEffect>().victim = collider.gameObject;
-            }
-        }));
+		// adds event to be played when weapon hit enemy
+		chainWeaponController.onHitEnemyEvents.Add(new Action<Collider2D>((Collider2D collider) =>
+		{
+			// checks if not already burning
+			if (!collider.transform.Find("BurnEffect"))
+			{
+				// adds burn effect to enemy
+				GameObject burnEffectClone = Instantiate(burnEffect);
+				burnEffectClone.GetComponent<BurnEffect>().victim = collider.gameObject;
+			}
+		}));
 
-        // starts fire trail on swing
-        swingWeaponController.onAttackEvents.Add(new Action(() =>
+		// starts fire trail on attack
+		chainWeaponController.onAttackEvents.Add(new Action(() =>
 		{
 			fireTrail.GetComponent<ParticleSystem>().Play();
 		}));
 
-		// stops fire trail on swing finish
-		swingWeaponController.onAttackFinishEvents.Add(new Action(() =>
+		// stops fire trail on attack finish
+		chainWeaponController.onAttackFinishEvents.Add(new Action(() =>
 		{
 			fireTrail.GetComponent<ParticleSystem>().Stop();
 		}));
@@ -53,21 +53,21 @@ public class FistOfArdorController : MonoBehaviour
 		// makes fire trail follow weapon
 
 		// makes sure weapon is enabled
-		if (swingWeaponController.gameObject.activeInHierarchy)
+		if (chainWeaponController.gameObject.activeInHierarchy)
 		{
 			// copies position and rotation
-			fireTrail.transform.position = swingWeaponController.transform.position;
-			fireTrail.transform.rotation = swingWeaponController.transform.rotation;
+			fireTrail.transform.position = (Vector2)chainWeaponController.head.transform.position;
+			fireTrail.transform.rotation = chainWeaponController.head.transform.rotation;
 
-			// accounts for direction of weapon
-			if (swingWeaponController.playerController.transform.localScale.x < 0)
+			/*// accounts for direction of weapon
+			if (chainWeaponController.playerController.transform.localScale.x < 0)
 			{
 				fireTrail.transform.localScale = new Vector3(-Mathf.Abs(fireTrail.transform.localScale.x), fireTrail.transform.localScale.y, fireTrail.transform.localScale.z);
 			}
 			else
 			{
 				fireTrail.transform.localScale = new Vector3(Mathf.Abs(fireTrail.transform.localScale.x), fireTrail.transform.localScale.y, fireTrail.transform.localScale.z);
-			}
+			}*/
 		}
 	}
 
