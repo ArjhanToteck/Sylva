@@ -44,11 +44,11 @@ TagManager:
   - name: Background
     uniqueID: 2557994243
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Ground
     uniqueID: 888574807
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Objects
     uniqueID: 944534629
