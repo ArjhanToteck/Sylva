@@ -615,7 +615,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Name
+  m_text: "Agost\xEDn"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 51353741d8b57ef4d81603a50467c285, type: 2}
   m_sharedMaterial: {fileID: 468994420119924929, guid: 51353741d8b57ef4d81603a50467c285, type: 2}
