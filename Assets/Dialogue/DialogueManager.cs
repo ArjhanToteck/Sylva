@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -16,33 +17,24 @@ public class DialogueManager : MonoBehaviour
 	public float duration = 5f;
 	public float interval = 0.1f;
 
+	[SerializeField]
+	public DialogueData dialogueData;
+
 	// animation settings
 	List<int> shakeIndexes = new List<int>();
 	List<int> wobbleIndexes = new List<int>();
 
 	bool addChar = false;
 
-	void SetName(string name)
+	void Start()
 	{
-		this.speakerName = name;
-	}
-
-	// Start is called before the first frame update
-	void StartDialogue(AnimationEvent animationEvent)
-	{
-		canvas.SetActive(true);
-
-		dialogue = animationEvent.stringParameter;
-		duration = animationEvent.floatParameter;
-		speakerName = animationEvent.intParameter > 0 ? speakerName : null;
-
 		StartCoroutine(RevealText());
 	}
 
 	IEnumerator RevealText()
 	{
 		// parses text
-		DialogueData dialogueData = GetDialogueData(dialogue);
+		dialogueData = GetDialogueData(dialogue);
 
 		// sets text and name
 		textObject.text = dialogueData.TMPParsedText;
@@ -58,26 +50,6 @@ public class DialogueManager : MonoBehaviour
 
 		// hides all characters
 		textObject.maxVisibleCharacters = 0;
-		/*for (int i = 0; i < textObject.textInfo.characterInfo.Length; i++)
-		{
-			TMP_CharacterInfo charInfo = textObject.textInfo.characterInfo[i];
-
-			if (!charInfo.isVisible) continue;
-
-			Vector3[] vertices = textObject.textInfo.meshInfo[charInfo.materialReferenceIndex].vertices;
-			vertices[0] = new Vector2(0, 0);
-			vertices[1] = new Vector2(0, 0);
-			vertices[2] = new Vector2(0, 0);
-			vertices[3] = new Vector2(0, 0);
-		}
-
-		// refreshes mesh
-		for (int i = 0; i < textObject.textInfo.meshInfo.Length; i++)
-		{
-			TMP_MeshInfo meshInfo = textObject.textInfo.meshInfo[i];
-			meshInfo.mesh.vertices = meshInfo.vertices;
-			textObject.UpdateGeometry(meshInfo.mesh, i);
-		}*/
 
 		// loops through each chunk of text
 		foreach (TextChunk chunk in dialogueData.chunks)
@@ -88,7 +60,6 @@ public class DialogueManager : MonoBehaviour
 				int currentCharacter = chunk.start + i;
 
 				// shows one more character
-				//textObject.maxVisibleCharacters++;
 				addChar = true;
 
 				// shake
@@ -178,6 +149,8 @@ public class DialogueManager : MonoBehaviour
 	{
 		DialogueData data = new DialogueData();
 
+		data.rawText = text;
+
 		// keeps track of effects
 		List<TextEffect> currentEffects = new List<TextEffect>();
 
@@ -203,24 +176,6 @@ public class DialogueManager : MonoBehaviour
 				currentContent = "";
 
 				TextEffect effect = new TextEffect(tag);
-
-				/*// different special parameters for certain tags
-				switch (tag)
-				{
-					case "color":
-					{
-						string color = text.Substring(i).Split('>')[0].Split('=')[1];
-						effect = new TextEffect(tag, color);
-
-						break;
-					}
-
-					default:
-					{
-						effect = new TextEffect(tag);
-						break;
-					}
-				}*/
 
 				// adds new effect
 				currentEffects.Add(effect);
@@ -264,18 +219,16 @@ public class DialogueManager : MonoBehaviour
 				if (effectFound)
 				{
 					// adds content before tag
-					if (currentContent.Length > 0)
-					{
-						data.chunks.Add(new TextChunk(currentContent, TextEffect.CloneList(currentEffects)));
-						data.plainText += currentContent;
-						data.TMPParsedText += currentContent;
+					data.chunks.Add(new TextChunk(currentContent, TextEffect.CloneList(currentEffects)));
+					data.plainText += currentContent;
+					data.TMPParsedText += currentContent;
 
-						// if not a custom effecct, it is a TMP effect and stays in TMPParsedText
-						if (!TextEffect.customEffects.Contains(tag))
-						{
-							data.TMPParsedText += "</" + text.Substring(i).Split("</")[1].Split('>')[0] + ">";
-						}
+					// if not a custom effecct, it is a TMP effect and stays in TMPParsedText
+					if (!TextEffect.customEffects.Contains(tag))
+					{
+						data.TMPParsedText += "</" + text.Substring(i).Split("</")[1].Split('>')[0] + ">";
 					}
+
 					currentContent = "";
 
 					// removes effect from list
@@ -317,6 +270,7 @@ public class DialogueManager : MonoBehaviour
 		return data;
 	}
 
+	[Serializable]
 	public class TextChunk
 	{
 		public int start;
@@ -332,6 +286,7 @@ public class DialogueManager : MonoBehaviour
 		}
 	}
 
+	[Serializable]
 	public class TextEffect
 	{
 		public static List<string> customEffects = new List<string>(new string[] { "shake", "wobble" });
@@ -375,6 +330,7 @@ public class DialogueManager : MonoBehaviour
 		}
 	}
 
+	[Serializable]
 	public class DialogueData
 	{
 		public string rawText = "";
