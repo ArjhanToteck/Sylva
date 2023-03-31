@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
+	const float namePadding = 15f;
+
 	[Header("Game Objects")]
 	public TMP_Text textObject;
 	public TMP_Text nameObject;
@@ -28,10 +30,10 @@ public class DialogueManager : MonoBehaviour
 
 	void Start()
 	{
-		StartCoroutine(RevealText());
+		StartCoroutine(StartDialogue(dialogue, speakerName, duration, interval));
 	}
 
-	IEnumerator RevealText()
+	IEnumerator StartDialogue(string dialogue, string speakerName, float duration, float interval)
 	{
 		// parses text
 		dialogueData = GetDialogueData(dialogue);
@@ -46,6 +48,11 @@ public class DialogueManager : MonoBehaviour
 		{
 			nameObject.transform.parent.gameObject.SetActive(true);
 			nameObject.text = speakerName;
+
+			// resizes text box
+			float width = nameObject.preferredWidth * nameObject.GetComponent<RectTransform>().localScale.x + namePadding;
+
+			nameObject.transform.parent.GetComponent<RectTransform>().sizeDelta = new Vector2(width, nameObject.transform.parent.GetComponent<RectTransform>().sizeDelta.y);
 		}
 
 		// hides all characters
