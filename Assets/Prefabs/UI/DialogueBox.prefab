@@ -267,8 +267,8 @@ MonoBehaviour:
   textObject: {fileID: 5443742552644761424}
   nameObject: {fileID: 4427108010712309458}
   canvas: {fileID: 0}
-  animator: {fileID: 0}
   continueArrow: {fileID: 2304878103830262295}
+  choicePrefab: {fileID: 318248616761030120, guid: 9efe0463cfb957a43949fbdae03c197e, type: 3}
   speakerName: Name
   dialogue: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

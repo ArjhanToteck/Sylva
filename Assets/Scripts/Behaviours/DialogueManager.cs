@@ -15,9 +15,10 @@ public class DialogueManager : MonoBehaviour
 	public TMP_Text nameObject;
 	public GameObject canvas;
 	public GameObject continueArrow;
+	public GameObject choicePrefab;
 
 	[Header("Parameters")]
-	public string speakerName = "Name";
+	public string speakerName = "";
 	public string dialogue = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.";
 	public float interval = 0.1f;
 	public Animator speakerAnimator;
@@ -93,7 +94,7 @@ public class DialogueManager : MonoBehaviour
 
 		// sets text and name
 		textObject.text = dialogueData.TMPParsedText;
-		if(speakerName == null)
+		if(speakerName == null || speakerName == "")
 		{
 			nameObject.transform.parent.gameObject.SetActive(false);
 		}

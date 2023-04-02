@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5541c499fbe4a844eae9d948508043ea, type: 3}
-  m_Name: Conversation
+  m_Name: IntroConversation
   m_EditorClassIdentifier: 
   conversation:
   - {fileID: 11400000, guid: 9a94f190301230341bb47016f118beef, type: 2}
   - {fileID: 11400000, guid: e97fd27910f9f5f45b565ed68f62be16, type: 2}
+  - {fileID: 11400000, guid: 5629be50229c0474bb5b2bd05ec4aa3e, type: 2}
+  - {fileID: 11400000, guid: 079afb70d67510141bcb40abb39474aa, type: 2}
