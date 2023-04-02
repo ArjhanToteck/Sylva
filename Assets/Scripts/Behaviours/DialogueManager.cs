@@ -3,19 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
 	const float namePadding = 15f;
+	const string entranceAnimationName = "SwipeIn";
 
 	[Header("Game Objects")]
 	public TMP_Text textObject;
 	public TMP_Text nameObject;
 	public GameObject canvas;
+	public Animator animator;
 
 	[Header("Parameters")]
-	public string dialogue = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.";
 	public string speakerName = "Name";
+	public string dialogue = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.";
 	public float duration = 5f;
 	public float interval = 0.1f;
 
@@ -28,12 +31,34 @@ public class DialogueManager : MonoBehaviour
 
 	bool addChar = false;
 
-	void Start()
+	// lots of helper functions for unity events. fuck unity events.
+
+	public void SetSpeakerName(string speakerName)
 	{
-		StartCoroutine(StartDialogue(dialogue, speakerName, duration, interval));
+		this.speakerName = speakerName;
 	}
 
-	IEnumerator StartDialogue(string dialogue, string speakerName, float duration, float interval)
+	public void SetDialogue(string dialogue)
+	{
+		this.dialogue = dialogue;
+	}
+
+	public void SetDuration(float duration)
+	{
+		this.duration = duration;
+	}
+
+	public void SetInterval(float interval)
+	{
+		this.interval = interval;
+	}
+
+	public void StartDialogue()
+	{
+		StartCoroutine(StartDialogueCoroutine(dialogue, speakerName, duration, interval));
+	}
+
+	IEnumerator StartDialogueCoroutine(string dialogue, string speakerName, float duration, float interval)
 	{
 		// parses text
 		dialogueData = GetDialogueData(dialogue);
@@ -57,6 +82,12 @@ public class DialogueManager : MonoBehaviour
 
 		// hides all characters
 		textObject.maxVisibleCharacters = 0;
+
+		// waits until entrance animation is finished
+		while (animator.GetCurrentAnimatorStateInfo(0).IsName(entranceAnimationName))
+		{
+			yield return null;
+		}
 
 		// loops through each chunk of text
 		foreach (TextChunk chunk in dialogueData.chunks)
