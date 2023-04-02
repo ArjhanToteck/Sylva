@@ -62,14 +62,35 @@ public class DialogueManager : MonoBehaviour
 
 	public IEnumerator StartConversationCoroutine(Conversation conversation)
 	{
+		// takes away player control
+		bool previouslyControllable = FindObjectOfType<PlayerController>().controllable;
+		FindObjectOfType<PlayerController>().StopControl();
+
 		foreach (Dialogue dialogue in conversation.conversation)
 		{
 			yield return StartCoroutine(StartDialogueCoroutine(dialogue));
 		}
+
+		// gives back player control
+		if (previouslyControllable) FindObjectOfType<PlayerController>().StartControl();
+
+		// starts exit animation
+		animator.SetTrigger("exit");
+
+		// waits until exit animation is over and Empty state is reached
+		while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Empty"))
+		{
+			yield return null;
+		}
+
+		// hides dialogue box
+		gameObject.SetActive(false);
 	}
 
 	public void StartDialogue(Dialogue dialogue)
 	{
+		FindObjectOfType<PlayerController>().controllable = false;
+
 		StartCoroutine(StartDialogueCoroutine(dialogue));
 	}
 
@@ -113,7 +134,10 @@ public class DialogueManager : MonoBehaviour
 			yield return null;
 		}
 
+		// vars to track dialogue skip
 		bool skipDialogue = false;
+		bool buttonDown = false;
+		bool buttonUp = false;
 
 		// loops through each chunk of text
 		foreach (TextChunk chunk in dialogueData.chunks)
@@ -140,8 +164,6 @@ public class DialogueManager : MonoBehaviour
 
 				// waits before next character or dialogue is skipped
 				float timer = 0f;
-				bool buttonDown = false;
-				bool buttonUp = false;
 
 				while (timer < interval)
 				{
@@ -181,6 +203,9 @@ public class DialogueManager : MonoBehaviour
 
 		// shows continue arrow
 		continueArrow.SetActive(true);
+
+		// waits a frame before checking for input to prevent accidentally skipping the entire thing without reading
+		yield return null;
 
 		// waits for input (press skip dialogue button)
 		while (!Input.GetButtonDown("SkipDialogue"))
@@ -385,17 +410,17 @@ public class DialogueManager : MonoBehaviour
 	{
 		AnimatorController ac = animator.runtimeAnimatorController as AnimatorController;
 
-		// get the root state machine for the Animator controller
+		// gets the root state machine for the Animator controller
 		AnimatorStateMachine rootStateMachine = ac.layers[0].stateMachine;
 
-		// search the root state machine recursively for the animation clip
+		// searches the root state machine recursively for the animation clip
 		AnimatorState state = FindStateContainingClipRecursive(rootStateMachine, clip);
 
 		return state;
 
 		AnimatorState FindStateContainingClipRecursive(AnimatorStateMachine stateMachine, AnimationClip clip)
 		{
-			// search the current state machine for the animation clip
+			// searches the current state machine for the animation clip
 			foreach (ChildAnimatorState state in stateMachine.states)
 			{
 				if (state.state.motion == clip)
@@ -404,7 +429,7 @@ public class DialogueManager : MonoBehaviour
 				}
 			}
 
-			// search child state machines recursively for the animation clip
+			// searches child state machines recursively for the animation clip
 			foreach (ChildAnimatorStateMachine childStateMachine in stateMachine.stateMachines)
 			{
 				AnimatorState state = FindStateContainingClipRecursive(childStateMachine.stateMachine, clip);

@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 	public bool falling = false;
 	public bool justLanded = false;
 	public bool hitCooldown = false;
+	public bool controllable = true;
 
 	[Header("Attack Data")]
 	public bool swingAttack = false;
@@ -84,138 +85,144 @@ public class PlayerController : MonoBehaviour
 		if (castSpellProgress > 1) castSpellProgress = -1;
 		if (castSpellProgress < 0) castSpellProgress = -1;
 
-		// switch weapon
-
-		// checks if switch weapon button held
-		if (Input.GetButton("SwitchWeapon") || Input.GetAxis("SwitchWeapon") > 0.5f)
+		if (controllable)
 		{
-			// checks if not already switching an item
-			if (!itemSwitch.switchingItem)
+			// switch weapon
+
+			// checks if switch weapon button held
+			if (Input.GetButton("SwitchWeapon") || Input.GetAxis("SwitchWeapon") > 0.5f)
 			{
-				// sets parameters to switch
-				itemSwitch.SwitchItem(new List<Item>(data.weapons), data.selectedWeapon, (int selection) =>
+				// checks if not already switching an item
+				if (!itemSwitch.switchingItem)
 				{
-					// sets selected weapon to the weapon that was selected just now
-					data.selectedWeapon = selection;
-
-					// loads weapon when ready
-					StartCoroutine(LoadWeaponWhenReady());
-
-					IEnumerator LoadWeaponWhenReady()
+					// sets parameters to switch
+					itemSwitch.SwitchItem(new List<Item>(data.weapons), data.selectedWeapon, (int selection) =>
 					{
-						// waits until not attacking
-						while(swingAttackProgress != -1 || !chainAttackFinished || castSpellProgress != -1)
-						{
-							yield return null;
-						}
+						// sets selected weapon to the weapon that was selected just now
+						data.selectedWeapon = selection;
 
-						// loads weapon
-						LoadWeapon();
-					}
-				});
+						// loads weapon when ready
+						StartCoroutine(LoadWeaponWhenReady());
+
+						IEnumerator LoadWeaponWhenReady()
+						{
+							// waits until not attacking
+							while (swingAttackProgress != -1 || !chainAttackFinished || castSpellProgress != -1)
+							{
+								yield return null;
+							}
+
+							// loads weapon
+							LoadWeapon();
+						}
+					});
+				}
 			}
-		}
-		// checks if switch spell button held
-		else if (Input.GetButton("SwitchSpell") || Input.GetAxis("SwitchSpell") < -0.5f)
-		{
-			// checks if not already switching an item
-			if (!itemSwitch.switchingItem)
+			// checks if switch spell button held
+			else if (Input.GetButton("SwitchSpell") || Input.GetAxis("SwitchSpell") < -0.5f)
 			{
-				// sets parameters to switch
-				itemSwitch.SwitchItem(new List<Item>(data.spells), data.selectedSpell, (int selection) =>
+				// checks if not already switching an item
+				if (!itemSwitch.switchingItem)
 				{
-					// sets selected weapon to the weapon that was selected just now
-					data.selectedSpell = selection;
-
-					// loads spell when ready
-					StartCoroutine(LoadSpellWhenReady());
-
-					IEnumerator LoadSpellWhenReady()
+					// sets parameters to switch
+					itemSwitch.SwitchItem(new List<Item>(data.spells), data.selectedSpell, (int selection) =>
 					{
-						// waits until not attacking
-						while (swingAttackProgress != -1 || !chainAttackFinished || castSpellProgress != -1)
-						{
-							yield return null;
-						}
+						// sets selected weapon to the weapon that was selected just now
+						data.selectedSpell = selection;
 
-						// loads spell
-						LoadSpell();
-					}
-				});
+						// loads spell when ready
+						StartCoroutine(LoadSpellWhenReady());
+
+						IEnumerator LoadSpellWhenReady()
+						{
+							// waits until not attacking
+							while (swingAttackProgress != -1 || !chainAttackFinished || castSpellProgress != -1)
+							{
+								yield return null;
+							}
+
+							// loads spell
+							LoadSpell();
+						}
+					});
+				}
 			}
-		}
-		else
-		{
-			itemSwitch.switchingItem = false;
-		}
+			else
+			{
+				itemSwitch.switchingItem = false;
+			}
+		}		
 
 		// only does these things while not paused
 		if (Time.timeScale > 0)
 		{
-			// run
-
-			// sets horizontal speed
-			xSpeed = Input.GetAxisRaw("Horizontal") * data.speed;
-
-			// jump
-
-			// checks if jump button pressed
-			if ((Input.GetButton("Jump") || Input.GetAxis("Jump") > 0.5f) && !justLanded && !falling)
+			if (controllable)
 			{
-				jumping = true;
-			}
-			else
-			{
-				justLanded = false;
-			}
+				// run
 
-			// attack
+				// sets horizontal speed
+				xSpeed = Input.GetAxisRaw("Horizontal") * data.speed;
 
-			// checks if attacking
-			if ((Input.GetButton("Attack") || Input.GetAxis("Attack") > 0.5f) && chainAttackFinished && swingAttackProgress == -1 && castSpellProgress == -1)
-			{
-				// remembers weapon equipped at time of attack
-				weaponSelectedBeforeAttack = data.weapons[data.selectedWeapon];
+				// jump
 
-				// gets aimed angle
-				aimAngle = GetAimAngle(Input.GetButton("Attack")); // if keyboard was used, button is true rather than axis
-
-				// sets up attack
-
-				// checks if chain weapon
-				if (data.weapons[data.selectedWeapon].GetType() == typeof(Item.Weapon.ChainWeapon))
+				// checks if jump button pressed
+				if ((Input.GetButton("Jump") || Input.GetAxis("Jump") > 0.5f) && !justLanded && !falling)
 				{
-					chainAttack = true;
+					jumping = true;
 				}
-				// regular swing weapon
 				else
 				{
-					swingAttackProgress = 0;
-					swingAttack = true;
-					inSwingAttackAnimation = true;
+					justLanded = false;
 				}
-			}
-			else
-			{
-				swingAttack = false;
-				chainAttack = false;
-			}
 
-			// spell
-			if ((Input.GetButton("Spell") || Input.GetAxis("Spell") > 0.5f) && chainAttackFinished && swingAttackProgress == -1 && castSpellProgress == -1)
-			{
-				// remembers spell equipped at start of attack
-				spellSelectedBeforeAttack = data.spells[data.selectedSpell];
+				// attack
 
-				// marks spell as ready to cast
-				castSpell = true;
+				// checks if attacking
+				if ((Input.GetButton("Attack") || Input.GetAxis("Attack") > 0.5f) && chainAttackFinished && swingAttackProgress == -1 && castSpellProgress == -1)
+				{
+					// remembers weapon equipped at time of attack
+					weaponSelectedBeforeAttack = data.weapons[data.selectedWeapon];
 
-				// gets aimed angle in case spell needs it
-				aimAngle = GetAimAngle(Input.GetButton("Spell")); // if keyboard was used, button is true rather than axis
-			}
-			else
-			{
-				castSpell = false;
+					// gets aimed angle
+					aimAngle = GetAimAngle(Input.GetButton("Attack")); // if keyboard was used, button is true rather than axis
+
+					// sets up attack
+
+					// checks if chain weapon
+					if (data.weapons[data.selectedWeapon].GetType() == typeof(Item.Weapon.ChainWeapon))
+					{
+						chainAttack = true;
+					}
+					// regular swing weapon
+					else
+					{
+						swingAttackProgress = 0;
+						swingAttack = true;
+						inSwingAttackAnimation = true;
+					}
+				}
+				else
+				{
+					swingAttack = false;
+					chainAttack = false;
+				}
+
+				// spell
+				if ((Input.GetButton("Spell") || Input.GetAxis("Spell") > 0.5f) && chainAttackFinished && swingAttackProgress == -1 && castSpellProgress == -1)
+				{
+					// remembers spell equipped at start of attack
+					spellSelectedBeforeAttack = data.spells[data.selectedSpell];
+
+					// marks spell as ready to cast
+					castSpell = true;
+
+					// gets aimed angle in case spell needs it
+					aimAngle = GetAimAngle(Input.GetButton("Spell")); // if keyboard was used, button is true rather than axis
+				}
+				else
+				{
+					castSpell = false;
+				}
 			}
 
 			// falling
@@ -303,6 +310,17 @@ public class PlayerController : MonoBehaviour
 		StartCoroutine(WaitForHitCooldown());
 
 		return true;
+	}
+
+	public void StopControl()
+	{
+		xSpeed = 0;
+		controllable = false;
+	}
+
+	public void StartControl()
+	{
+		controllable = true;
 	}
 
 	IEnumerator WaitForHitCooldown()

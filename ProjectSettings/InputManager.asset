@@ -362,7 +362,7 @@ InputManager:
     descriptiveName: Skip dialogue mouse/keyboard
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: mouse 1
+    positiveButton: mouse 0
     altNegativeButton: 
     altPositiveButton: enter
     gravity: 1000
