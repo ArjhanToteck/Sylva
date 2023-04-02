@@ -452,10 +452,7 @@ MonoBehaviour:
   textObject: {fileID: 6568005162333469972}
   nameObject: {fileID: 3303968260496282774}
   canvas: {fileID: 3303968259855168647}
-  dialogue: <color=red><wobble>Lorem</wobble></color> ipsum dolor sit amet, consectetur
-    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-    ex ea.
+  dialogue: Yeah? Well, <color=red><shake>fuck you.</shake></color>
   speakerName: "Agost\xFDn"
   duration: 5
   interval: 0.1
@@ -615,7 +612,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Agost\xFDn"
+  m_text: Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 51353741d8b57ef4d81603a50467c285, type: 2}
   m_sharedMaterial: {fileID: 468994420119924929, guid: 51353741d8b57ef4d81603a50467c285, type: 2}

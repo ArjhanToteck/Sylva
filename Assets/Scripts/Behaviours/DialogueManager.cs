@@ -89,8 +89,7 @@ public class DialogueManager : MonoBehaviour
 		// waits for duration
 		if(duration > 0) yield return new WaitForSeconds(duration);
 
-		// marks dialogue as finished
-		GetComponent<Animator>().SetTrigger("dialogueFinished");
+		Debug.Log("done");
 	}
 
 	void Update()
