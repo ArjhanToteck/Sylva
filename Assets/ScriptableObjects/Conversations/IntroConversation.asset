@@ -24,26 +24,38 @@ MonoBehaviour:
     dialogue: Correct. I would assume you are ${playerName}?
     interval: 0.05
     choices:
-    - Correct. I would assume you are ${playerName}?
+    - That's me.
     - Pleasure to meet you.
     - ...
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
   - speakerName: "Agost\xFDn"
-    dialogue: Right. Now that we're well acquainted, let's talk <color=#03c6fc>business</color>.
+    dialogue: Right. Well, now that we're well acquainted, let's talk <color=#03c6fc>business</color>.
     interval: 0.05
     choices: []
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
   - speakerName: "Agost\xFDn"
-    dialogue: If you're joining the Syndicate, it means you're desperate, you're
-      willing     to take risks, or you just don't know what you're getting into.
+    dialogue: If you're joining the <color=#03c6fc>Syndicate</color>, it means you're
+      <color=red>desperate</color>, you're <color=red>exceptionally daring</color>,
+      or you just <color=red>don't know what you're getting into</color>.
     interval: 0.05
     choices: []
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
   - speakerName: "Agost\xFDn"
     dialogue: So, which is it?
+    interval: 0.05
+    choices:
+    - I need the money.
+    - It's all I have left.
+    - I guess I might be a bit stupid.
+    talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
+    doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
+  - speakerName: "Agost\xFDn"
+    dialogue: Regardless, we have <color=#03c6fc>a job</color> for you. If you manage
+      to <color=red>not kill yourself</color>, then we'll have ourselves a <color=#03c6fc><wobble>nice
+      beneficial partnership</color></wobble>.
     interval: 0.05
     choices: []
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}

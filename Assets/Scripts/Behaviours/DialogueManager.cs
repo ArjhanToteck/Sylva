@@ -169,15 +169,9 @@ public class DialogueManager : MonoBehaviour
 
 					skipDialogue = buttonDown && buttonUp;
 
-					if (skipDialogue) break;
-
-					yield return null;
+					if (!skipDialogue) yield return null;
 				}
-
-				if (skipDialogue) break;
 			}
-
-			if (skipDialogue) break;
 		}
 
 		// ensures all characters are shown at the end
