@@ -9,7 +9,6 @@ using UnityEngine.Events;
 public class DialogueManager : MonoBehaviour
 {
 	const float namePadding = 15f;
-	const string entranceAnimationName = "SwipeIn";
 
 	[Header("Game Objects")]
 	public TMP_Text textObject;
