@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
 	[Header("Body Parts")]
 	public Parts parts;
 
+	[SerializeField]
+	public object test;
+
 	[Header("Components")]
 	public CharacterController2D controller;
 	public Rigidbody2D rigidbody;

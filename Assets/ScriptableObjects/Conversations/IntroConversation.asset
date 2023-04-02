@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5541c499fbe4a844eae9d948508043ea, type: 3}
+  m_Name: IntroConversation
+  m_EditorClassIdentifier: 
+  conversation:
+  - speakerName: ???
+    dialogue: <color=orange><i>Salutos.</i></color>
+    interval: 0.05
+    choices:
+    - "\"Are you Agost\xFDn?\""
+    talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
+    doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
+  - speakerName: "Agost\xFDn?"
+    dialogue: Correct. I would assume you are ${playerName}?
+    interval: 0.05
+    choices:
+    - Correct. I would assume you are ${playerName}?
+    - Pleasure to meet you.
+    - ...
+    talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
+    doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
+  - speakerName: "Agost\xFDn"
+    dialogue: Right. Now that we're well acquainted, let's talk <color=#03c6fc>business</color>.
+    interval: 0.05
+    choices: []
+    talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
+    doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
+  - speakerName: "Agost\xFDn"
+    dialogue: If you're joining the Syndicate, it means you're desperate, you're
+      willing     to take risks, or you just don't know what you're getting into.
+    interval: 0.05
+    choices: []
+    talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
+    doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
+  - speakerName: "Agost\xFDn"
+    dialogue: So, which is it?
+    interval: 0.05
+    choices: []
+    talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
+    doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}

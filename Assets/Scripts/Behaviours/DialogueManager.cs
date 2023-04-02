@@ -69,7 +69,7 @@ public class DialogueManager : MonoBehaviour
 		bool previouslyControllable = FindObjectOfType<PlayerController>().controllable;
 		FindObjectOfType<PlayerController>().StopControl();
 
-		foreach (Dialogue dialogue in conversation.conversation)
+		foreach (Conversation.Dialogue dialogue in conversation.conversation)
 		{
 			yield return StartCoroutine(StartDialogueCoroutine(dialogue));
 		}
@@ -81,14 +81,14 @@ public class DialogueManager : MonoBehaviour
 		gameObject.SetActive(false);
 	}
 
-	public void StartDialogue(Dialogue dialogue)
+	public void StartDialogue(Conversation.Dialogue dialogue)
 	{
 		FindObjectOfType<PlayerController>().controllable = false;
 
 		StartCoroutine(StartDialogueCoroutine(dialogue));
 	}
 
-	IEnumerator StartDialogueCoroutine(Dialogue dialogue)
+	IEnumerator StartDialogueCoroutine(Conversation.Dialogue dialogue)
 	{
 		// hides continue arrow
 		continueArrow.SetActive(false);
