@@ -5,16 +5,20 @@ using TMPro;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class DialogueManager : MonoBehaviour
 {
 	const float namePadding = 15f;
+	const float choiceSpacing = 10f;
 
 	[Header("Game Objects")]
 	public TMP_Text textObject;
 	public TMP_Text nameObject;
 	public GameObject canvas;
 	public GameObject continueArrow;
+	public Transform choiceContainer;
 	public GameObject choicePrefab;
 
 	[Header("Parameters")]
@@ -185,25 +189,75 @@ public class DialogueManager : MonoBehaviour
 			speakerAnimator.Play(FindStateContainingClip(speakerAnimator, dialogue.doneTalkingClip).name);
 		}
 
-		// shows continue arrow
-		continueArrow.SetActive(true);
-
-		// waits a frame before checking for input to prevent accidentally skipping the entire thing without reading
-		yield return null;
-
-		// waits for input (press skip dialogue button)
-		while (!Input.GetButtonDown("SkipDialogue"))
+		// checks if there are choices attatched
+		if(dialogue.choices != null && dialogue.choices.Length > 0)
 		{
-			yield return null;
-		}
+			string choiceMade = null;
 
-		while (!Input.GetButtonUp("SkipDialogue"))
+			float totalHeight = dialogue.choices.Length * (choicePrefab.GetComponent<RectTransform>().rect.height + choiceSpacing);
+
+			// loops through choices
+			for (int i = 0; i < dialogue.choices.Length; i++)
+			{
+				// last to first so the last choice is at the bottom
+				string choice = dialogue.choices[dialogue.choices.Length - 1 - i];
+
+				// creates new choice object from prefab
+				GameObject choiceObject = Instantiate(choicePrefab);
+				choiceObject.transform.SetParent(choiceContainer, false);
+
+				yield return 0;
+
+				// places choice
+
+				// centers on x axis
+				choiceObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, i * (choiceObject.GetComponent<RectTransform>().sizeDelta.y + choiceSpacing));
+
+				// labels choice
+				choiceObject.transform.Find("Label").GetComponent<TMP_Text>().text = choice;
+
+				// adds consequence function to onclick of choice
+				choiceObject.GetComponent<Button>().onClick.AddListener(delegate
+				{
+					// marks that a choice has been chosen
+					choiceMade = choice;
+				});
+			}
+
+			// wait until a choice is made
+			while (choiceMade == null)
+			{
+				yield return null;
+			}
+
+			// destroys choices
+			foreach(Transform child in choiceContainer)
+			{
+				Destroy(child.gameObject);
+			}
+		}
+		else
 		{
-			yield return null;
-		}
+			// shows continue arrow
+			continueArrow.SetActive(true);
 
-		// hides continue arrow
-		continueArrow.SetActive(false);
+			// waits a frame before checking for input to prevent accidentally skipping the entire thing without reading
+			yield return null;
+
+			// waits for input (press skip dialogue button)
+			while (!Input.GetButtonDown("SkipDialogue"))
+			{
+				yield return null;
+			}
+
+			while (!Input.GetButtonUp("SkipDialogue"))
+			{
+				yield return null;
+			}
+
+			// hides continue arrow
+			continueArrow.SetActive(false);
+		}		
 	}
 
 	void Update()

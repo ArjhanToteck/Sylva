@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue3
   m_EditorClassIdentifier: 
   speakerName: "Agost\xFDn"
-  dialogue: Right. Now that we're well acquainted, let's talk <wobble><color=#03c6fc>business</color></wobble>.
+  dialogue: Right. Now that we're well acquainted, let's talk <color=#03c6fc>business</color>.
   interval: 0.1
   choices: []
   talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
