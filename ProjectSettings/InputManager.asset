@@ -359,12 +359,44 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: SkipDialogue
-    descriptiveName: Skip dialogue mouse/keyboard
+    descriptiveName: Skip dialogue mouse
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: mouse 0
     altNegativeButton: 
-    altPositiveButton: enter
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 0
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: SkipDialogue
+    descriptiveName: Skip dialogue enter and return
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: enter
+    altNegativeButton: 
+    altPositiveButton: return
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 0
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: SkipDialogue
+    descriptiveName: Skip dialogue spacebar
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: space
+    altNegativeButton: 
+    altPositiveButton: return
     gravity: 1000
     dead: 0.001
     sensitivity: 0

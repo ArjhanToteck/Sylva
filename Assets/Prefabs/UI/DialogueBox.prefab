@@ -169,7 +169,6 @@ GameObject:
   - component: {fileID: 4427108010399723545}
   - component: {fileID: 4427108010399723544}
   - component: {fileID: 1435355604703065140}
-  - component: {fileID: 7796785142730239514}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
@@ -268,7 +267,7 @@ MonoBehaviour:
   textObject: {fileID: 5443742552644761424}
   nameObject: {fileID: 4427108010712309458}
   canvas: {fileID: 0}
-  animator: {fileID: 7796785142730239514}
+  animator: {fileID: 0}
   continueArrow: {fileID: 2304878103830262295}
   speakerName: Name
   dialogue: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -281,26 +280,6 @@ MonoBehaviour:
     TMPParsedText: 
     plainText: 
     chunks: []
---- !u!95 &7796785142730239514
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4427108010399723542}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a241285358228814aa26dc93349bfcb9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4427108010712309456
 GameObject:
   m_ObjectHideFlags: 0

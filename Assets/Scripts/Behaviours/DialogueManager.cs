@@ -15,7 +15,6 @@ public class DialogueManager : MonoBehaviour
 	public TMP_Text textObject;
 	public TMP_Text nameObject;
 	public GameObject canvas;
-	public Animator animator;
 	public GameObject continueArrow;
 
 	[Header("Parameters")]
@@ -74,15 +73,6 @@ public class DialogueManager : MonoBehaviour
 		// gives back player control
 		if (previouslyControllable) FindObjectOfType<PlayerController>().StartControl();
 
-		// starts exit animation
-		animator.SetTrigger("exit");
-
-		// waits until exit animation is over and Empty state is reached
-		while (!animator.GetCurrentAnimatorStateInfo(0).IsName("Empty"))
-		{
-			yield return null;
-		}
-
 		// hides dialogue box
 		gameObject.SetActive(false);
 	}
@@ -126,12 +116,6 @@ public class DialogueManager : MonoBehaviour
 		if (!!speakerAnimator && !!dialogue.talkingClip)
 		{
 			speakerAnimator.Play(FindStateContainingClip(speakerAnimator, dialogue.talkingClip).name);
-		}
-
-		// waits until entrance animation is finished
-		while (animator.GetCurrentAnimatorStateInfo(0).IsName(entranceAnimationName))
-		{
-			yield return null;
 		}
 
 		// vars to track dialogue skip
