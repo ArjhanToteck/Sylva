@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,12 +16,13 @@ public class DialogueManager : MonoBehaviour
 	public TMP_Text nameObject;
 	public GameObject canvas;
 	public Animator animator;
+	public GameObject continueArrow;
 
 	[Header("Parameters")]
 	public string speakerName = "Name";
 	public string dialogue = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.";
-	public float duration = 5f;
 	public float interval = 0.1f;
+	public Animator speakerAnimator;
 
 	[SerializeField]
 	public DialogueData dialogueData;
@@ -43,25 +45,41 @@ public class DialogueManager : MonoBehaviour
 		this.dialogue = dialogue;
 	}
 
-	public void SetDuration(float duration)
-	{
-		this.duration = duration;
-	}
-
 	public void SetInterval(float interval)
 	{
 		this.interval = interval;
 	}
 
-	public void StartDialogue()
+	public void SetSpeakerAnimator(Animator speakerAnimator)
 	{
-		StartCoroutine(StartDialogueCoroutine(dialogue, speakerName, duration, interval));
+		this.speakerAnimator = speakerAnimator;
 	}
 
-	IEnumerator StartDialogueCoroutine(string dialogue, string speakerName, float duration, float interval)
+	public void StartConversation(Conversation conversation)
 	{
+		StartCoroutine(StartConversationCoroutine(conversation));
+	}
+
+	public IEnumerator StartConversationCoroutine(Conversation conversation)
+	{
+		foreach (Dialogue dialogue in conversation.conversation)
+		{
+			yield return StartCoroutine(StartDialogueCoroutine(dialogue));
+		}
+	}
+
+	public void StartDialogue(Dialogue dialogue)
+	{
+		StartCoroutine(StartDialogueCoroutine(dialogue));
+	}
+
+	IEnumerator StartDialogueCoroutine(Dialogue dialogue)
+	{
+		// hides continue arrow
+		continueArrow.SetActive(false);
+
 		// parses text
-		dialogueData = GetDialogueData(dialogue);
+		dialogueData = GetDialogueData(dialogue.dialogue);
 
 		// sets text and name
 		textObject.text = dialogueData.TMPParsedText;
@@ -83,11 +101,19 @@ public class DialogueManager : MonoBehaviour
 		// hides all characters
 		textObject.maxVisibleCharacters = 0;
 
+		// checks if there is an attatched speaker animator and talking animation
+		if (!!speakerAnimator && !!dialogue.talkingClip)
+		{
+			speakerAnimator.Play(FindStateContainingClip(speakerAnimator, dialogue.talkingClip).name);
+		}
+
 		// waits until entrance animation is finished
 		while (animator.GetCurrentAnimatorStateInfo(0).IsName(entranceAnimationName))
 		{
 			yield return null;
 		}
+
+		bool skipDialogue = false;
 
 		// loops through each chunk of text
 		foreach (TextChunk chunk in dialogueData.chunks)
@@ -112,15 +138,63 @@ public class DialogueManager : MonoBehaviour
 					wobbleIndexes.Add(currentCharacter);
 				}
 
-				// waits before next character
-				yield return new WaitForSeconds(interval);
+				// waits before next character or dialogue is skipped
+				float timer = 0f;
+				bool buttonDown = false;
+				bool buttonUp = false;
+
+				while (timer < interval)
+				{
+					timer += Time.deltaTime;
+
+					if (Input.GetButtonDown("SkipDialogue"))
+					{
+						buttonDown = true;
+					}
+
+					if (Input.GetButtonUp("SkipDialogue"))
+					{
+						buttonUp = true;
+					}
+
+					skipDialogue = buttonDown && buttonUp;
+
+					if (skipDialogue) break;
+
+					yield return null;
+				}
+
+				if (skipDialogue) break;
 			}
+
+			if (skipDialogue) break;
 		}
 
-		// waits for duration
-		if(duration > 0) yield return new WaitForSeconds(duration);
+		// ensures all characters are shown at the end
+		textObject.maxVisibleCharacters = dialogue.dialogue.Length;
 
-		Debug.Log("done");
+		// checks if there is an attatched speaker animator and animation for when finished talking
+		if (!!speakerAnimator && !!dialogue.doneTalkingClip)
+		{
+			speakerAnimator.Play(FindStateContainingClip(speakerAnimator, dialogue.doneTalkingClip).name);
+		}
+
+		// shows continue arrow
+		continueArrow.SetActive(true);
+
+		// waits for input (press skip dialogue button)
+		while (!Input.GetButtonDown("SkipDialogue"))
+		{
+			yield return null;
+		}
+
+		while (!Input.GetButtonUp("SkipDialogue"))
+		{
+			yield return null;
+		}
+
+		// hides continue arrow
+		continueArrow.SetActive(false);
 	}
 
 	void Update()
@@ -305,6 +379,43 @@ public class DialogueManager : MonoBehaviour
 		}
 
 		return data;
+	}
+
+	AnimatorState FindStateContainingClip(Animator animator, AnimationClip clip)
+	{
+		AnimatorController ac = animator.runtimeAnimatorController as AnimatorController;
+
+		// get the root state machine for the Animator controller
+		AnimatorStateMachine rootStateMachine = ac.layers[0].stateMachine;
+
+		// search the root state machine recursively for the animation clip
+		AnimatorState state = FindStateContainingClipRecursive(rootStateMachine, clip);
+
+		return state;
+
+		AnimatorState FindStateContainingClipRecursive(AnimatorStateMachine stateMachine, AnimationClip clip)
+		{
+			// search the current state machine for the animation clip
+			foreach (ChildAnimatorState state in stateMachine.states)
+			{
+				if (state.state.motion == clip)
+				{
+					return state.state;
+				}
+			}
+
+			// search child state machines recursively for the animation clip
+			foreach (ChildAnimatorStateMachine childStateMachine in stateMachine.stateMachines)
+			{
+				AnimatorState state = FindStateContainingClipRecursive(childStateMachine.stateMachine, clip);
+				if (state != null)
+				{
+					return state;
+				}
+			}
+
+			return null;
+		}
 	}
 
 	[Serializable]
