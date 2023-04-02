@@ -10,5 +10,5 @@ public class EnemyData
 	public EnemyController controller;
 
 	public int damage = 3;
-	public Vector2 knockback = new Vector2(25f, 10f);
+	public Vector2 knockback = new Vector2(20f, 15f);
 }

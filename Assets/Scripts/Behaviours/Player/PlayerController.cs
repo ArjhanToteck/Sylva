@@ -38,12 +38,14 @@ public class PlayerController : MonoBehaviour
 
 	public float aimAngle = 0; // used for chain weapons and spells
 
+	[NonSerialized]
 	public Item.Weapon weaponSelectedBeforeAttack;
 
 	[Header("Spell Data")]
 	public bool castSpell = false;
 	public float castSpellProgress = -1f; // this value is 0-1 for percent completion of a spell casting animation. 1 means finished casting.
 
+	[NonSerialized]
 	public Item.Spell spellSelectedBeforeAttack;
 
 	[Header("Data")]

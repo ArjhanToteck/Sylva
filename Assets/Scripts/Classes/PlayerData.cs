@@ -16,37 +16,17 @@ public class PlayerData
 	// hair isn't an item like armor, so must be tracked in PlayerData
 	public Texture2D hair;
 
-	[NonSerialized]
 	public Color hairColor = new Color(0.2f, 0f, 0f);
 
-	[NonSerialized]
 	public Color skinColor = new Color(0.8f, 0.6f, 0.5f);
 
 	// inventory
 
-	[NonSerialized]
-	public List<Item.Weapon> weapons = new List<Item.Weapon>(new Item.Weapon[]{
-		Item.items.apprenticeShortSword,
-		Item.items.fistOfArdor,
-		Item.items.steelWarHammer,
-		Item.items.flail,
-		Item.items.viperKnife,
-		Item.items.electricGuitar,
-		Item.items.comicallyLargeSpoon
-	});
+	public List<Item.Weapon> weapons = new List<Item.Weapon>();
 
-	[NonSerialized]
-	public List<Item.Spell> spells = new List<Item.Spell>(new Item.Spell[]{
-		Item.items.acidSpray,
-		Item.items.tempest
-	});
+	public List<Item.Spell> spells = new List<Item.Spell>();
 
-	[NonSerialized]
-	public ArmorSet armor = new ArmorSet(
-		Item.items.topHat,
-		Item.items.defaultShirt,
-		Item.items.defaultPants
-	);
+	public ArmorSet armor = new ArmorSet();
 
 	[Serializable]
 	public class ArmorSet
@@ -54,6 +34,13 @@ public class PlayerData
 		public Item.Armor helmet;
 		public Item.Armor shirt;
 		public Item.Armor pants;
+
+		public ArmorSet()
+		{
+			helmet = null;
+			shirt = null;
+			pants = null;
+		}
 
 		public ArmorSet(Item.Armor helmet, Item.Armor shirt, Item.Armor pants)
 		{
