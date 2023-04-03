@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SpellController : MonoBehaviour
 {
-	public Item.Spell spell;
+	public Spell spell;
 	public PlayerController playerController;
 
 	// events for controller children

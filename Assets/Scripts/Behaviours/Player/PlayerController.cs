@@ -39,14 +39,14 @@ public class PlayerController : MonoBehaviour
 	public float aimAngle = 0; // used for chain weapons and spells
 
 	[NonSerialized]
-	public Item.Weapon weaponSelectedBeforeAttack;
+	public Weapon weaponSelectedBeforeAttack;
 
 	[Header("Spell Data")]
 	public bool castSpell = false;
 	public float castSpellProgress = -1f; // this value is 0-1 for percent completion of a spell casting animation. 1 means finished casting.
 
 	[NonSerialized]
-	public Item.Spell spellSelectedBeforeAttack;
+	public Spell spellSelectedBeforeAttack;
 
 	[Header("Data")]
 	public PlayerData data;
@@ -72,9 +72,11 @@ public class PlayerController : MonoBehaviour
 
 		// loads weapon
 		LoadWeapon();
+		weaponSelectedBeforeAttack = data.weapons[data.selectedWeapon];
 
 		// loads spell
 		LoadSpell();
+		spellSelectedBeforeAttack = data.spells[data.selectedSpell];
 
 		// adjusts healthbar to start
 		healthBar.setMaxHealth(data.maxHealth);
@@ -194,7 +196,7 @@ public class PlayerController : MonoBehaviour
 					// sets up attack
 
 					// checks if chain weapon
-					if (data.weapons[data.selectedWeapon].GetType() == typeof(Item.Weapon.ChainWeapon))
+					if (data.weapons[data.selectedWeapon].GetType() == typeof(ChainWeapon))
 					{
 						chainAttack = true;
 					}
@@ -260,7 +262,7 @@ public class PlayerController : MonoBehaviour
 				// makes sure swing attack is started up if animation didn't finish
 				if (swingAttackProgress != -1f)
 				{
-					if (data.weapons[data.selectedWeapon].GetType() == typeof(Item.Weapon)) animator.SetBool("swingAttack", true);
+					if (data.weapons[data.selectedWeapon].GetType() == typeof(Weapon)) animator.SetBool("swingAttack", true);
 				}
 
 				// chain weapons
@@ -275,7 +277,7 @@ public class PlayerController : MonoBehaviour
 				// makes sure spell casting is started up if animation didn't finish
 				if (castSpellProgress != -1f)
 				{
-					if (data.spells[data.selectedSpell].GetType() == typeof(Item.Spell)) animator.SetBool("castSpell", true);
+					if (data.spells[data.selectedSpell].GetType() == typeof(Spell)) animator.SetBool("castSpell", true);
 				}
 			}
 		}
@@ -520,33 +522,35 @@ public class PlayerController : MonoBehaviour
             Destroy(oldController.gameObject);
         }
 
-        // chain weapon controller
-        // TODO: test this
-        if (parts.weapon.GetType() == typeof(Item.Weapon.ChainWeapon))
-        {
-            // clears old events
-            parts.weapon.transform.Find("ChainWeapon").GetComponent<ChainWeaponController>().ClearEvents();
+		if (data.weapons.Count > data.selectedWeapon)
+		{
+			// chain weapon controller
+			if (parts.weapon.GetType() == typeof(ChainWeapon))
+			{
+				// clears old events
+				parts.weapon.transform.Find("ChainWeapon").GetComponent<ChainWeaponController>().ClearEvents();
 
-            // adds controller as child if applicable
-            if (data.weapons[data.selectedWeapon].controller != null)
-            {
-                GameObject controllerChild = Instantiate(data.weapons[data.selectedWeapon].controller, parts.weapon.transform);
-                controllerChild.name = "Controller";
-            }
-        }
-        // swing weapon controller
-        else
-        {
-            // clears old events
-            parts.weapon.transform.Find("SwingWeapon").GetComponent<SwingWeaponController>().ClearEvents();
+				// adds controller as child if applicable
+				if (data.weapons[data.selectedWeapon].controller != null)
+				{
+					GameObject controllerChild = Instantiate(data.weapons[data.selectedWeapon].controller, parts.weapon.transform);
+					controllerChild.name = "Controller";
+				}
+			}
+			// swing weapon controller
+			else
+			{
+				// clears old events
+				parts.weapon.transform.Find("SwingWeapon").GetComponent<SwingWeaponController>().ClearEvents();
 
-            // adds controller as child if applicable
-            if (data.weapons[data.selectedWeapon].controller != null)
-            {
-                GameObject controllerChild = Instantiate(data.weapons[data.selectedWeapon].controller, parts.weapon.transform);
-                controllerChild.name = "Controller";
-            }
-        }		
+				// adds controller as child if applicable
+				if (data.weapons[data.selectedWeapon].controller != null)
+				{
+					GameObject controllerChild = Instantiate(data.weapons[data.selectedWeapon].controller, parts.weapon.transform);
+					controllerChild.name = "Controller";
+				}
+			}
+		}
 	}
 
 	public void LoadSpell()
@@ -562,11 +566,15 @@ public class PlayerController : MonoBehaviour
 			Destroy(oldController.gameObject);
 		}
 
-		// adds controller as child if applicable
-		if (data.spells[data.selectedSpell].controller != null)
+		if (data.spells.Count > data.selectedSpell)
 		{
-			GameObject controllerChild = Instantiate(data.spells[data.selectedSpell].controller, parts.spell.transform);
-			controllerChild.name = "Controller";
+			// adds controller as child if applicable
+			if (data.spells[data.selectedSpell].controller != null)
+			{
+				GameObject controllerChild = Instantiate(data.spells[data.selectedSpell].controller, parts.spell.transform);
+				controllerChild.name = "Controller";
+			}
 		}
+		
 	}
 }

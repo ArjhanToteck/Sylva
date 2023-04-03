@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwingWeaponController : MonoBehaviour
 {
-	public Item.Weapon weapon;
+	public Weapon weapon;
 	public PlayerController playerController;
 	public BoxCollider2D collider;
 	public SpriteRenderer spriteRenderer;

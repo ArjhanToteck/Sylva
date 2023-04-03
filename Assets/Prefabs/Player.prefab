@@ -170,27 +170,37 @@ MonoBehaviour:
   chainAttack: 0
   chainAttackFinished: 1
   aimAngle: 0
-  weaponSelectedBeforeAttack: {fileID: 0}
   castSpell: 0
   castSpellProgress: -1
-  spellSelectedBeforeAttack: {fileID: 0}
   data:
     maxHealth: 10
     health: 10
     hitCooldown: 3
     speed: 60
     defense: 0
-    selectedWeapon: 1
+    selectedWeapon: 0
     selectedSpell: 0
     hair: {fileID: 2800000, guid: a4a6b00b0f71a3047bdf8c4018f55cc8, type: 3}
     hairColor: {r: 0.2, g: 0, b: 0, a: 0}
     skinColor: {r: 0.8, g: 0.6, b: 0.5, a: 0}
-    weapons: []
-    spells: []
+    weapons:
+    - {fileID: 11400000, guid: bffb8085d84c07c49a23e05fd1e11965, type: 2}
+    - {fileID: 11400000, guid: d99df4672a237044f927e7f51df16716, type: 2}
+    - {fileID: 11400000, guid: f6831ec7e43ef7745885c964f0292503, type: 2}
+    - {fileID: 11400000, guid: 793eefd56aa00d7499642df7c3047afe, type: 2}
+    - {fileID: 11400000, guid: 97666bb8ac5c4cc48bf2c5421a3f10a7, type: 2}
+    - {fileID: 11400000, guid: 3f3975494bf523d4d8f43235eccf2eb9, type: 2}
+    - {fileID: 11400000, guid: 761ef38777e75db42825b5c579a9410e, type: 2}
+    - {fileID: 11400000, guid: 10feb29d8c631a545916fa25fd9054bd, type: 2}
+    spells:
+    - {fileID: 11400000, guid: 932954204ee68cc47b1cf24f30ab0171, type: 2}
+    - {fileID: 11400000, guid: 96841302fc0c72d4d903ea31681705d9, type: 2}
+    - {fileID: 11400000, guid: ed3057fbf2aa26749a249ad15b3008cf, type: 2}
+    - {fileID: 11400000, guid: b835c19eec1fbfc4a99667e2d04f090f, type: 2}
     armor:
-      helmet: {fileID: 0}
-      shirt: {fileID: 0}
-      pants: {fileID: 0}
+      helmet: {fileID: 11400000, guid: 1c0de6c63d1a1764095bd0a535c6e108, type: 2}
+      shirt: {fileID: 11400000, guid: 194306d82a933e34a94aecd1a8ed84c3, type: 2}
+      pants: {fileID: 11400000, guid: 3c02d34439a2186479a90bc26ce9a7cb, type: 2}
 --- !u!114 &8682415503203649532
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,19 +21,18 @@ public class PlayerData
 	public Color skinColor = new Color(0.8f, 0.6f, 0.5f);
 
 	// inventory
+	public List<Weapon> weapons = new List<Weapon>();
 
-	public List<Item.Weapon> weapons = new List<Item.Weapon>();
-
-	public List<Item.Spell> spells = new List<Item.Spell>();
+	public List<Spell> spells = new List<Spell>();
 
 	public ArmorSet armor = new ArmorSet();
 
 	[Serializable]
 	public class ArmorSet
 	{
-		public Item.Armor helmet;
-		public Item.Armor shirt;
-		public Item.Armor pants;
+		public Armor helmet;
+		public Armor shirt;
+		public Armor pants;
 
 		public ArmorSet()
 		{
@@ -42,7 +41,7 @@ public class PlayerData
 			pants = null;
 		}
 
-		public ArmorSet(Item.Armor helmet, Item.Armor shirt, Item.Armor pants)
+		public ArmorSet(Armor helmet, Armor shirt, Armor pants)
 		{
 			this.helmet = helmet;
 			this.shirt = shirt;
