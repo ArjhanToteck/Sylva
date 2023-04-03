@@ -13,14 +13,14 @@ public class Conversation : ScriptableObject
 	public class Dialogue
 	{
 		/// <summary>
-		/// The name of the person speaking. Leave empty or null to hide the name box.
-		/// </summary>
-		public string speakerName = "";
-
-		/// <summary>
 		/// The actual spoken lines.
 		/// </summary>
 		public string dialogue = "";
+
+		/// <summary>
+		/// The name of the person speaking. Leave empty or null to hide the name box.
+		/// </summary>
+		public string speakerName = "";
 
 		/// <summary>
 		/// The time, in seconds, between every letter showing up.
