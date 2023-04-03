@@ -72,11 +72,15 @@ public class PlayerController : MonoBehaviour
 
 		// loads weapon
 		LoadWeapon();
-		weaponSelectedBeforeAttack = data.weapons[data.selectedWeapon];
+
+		// gets weapon before attack
+		if(data.weapons.Count > 0) weaponSelectedBeforeAttack = data.weapons[data.selectedWeapon];
 
 		// loads spell
 		LoadSpell();
-		spellSelectedBeforeAttack = data.spells[data.selectedSpell];
+
+		// gets spell before attack
+		if (data.spells.Count > 0) spellSelectedBeforeAttack = data.spells[data.selectedSpell];
 
 		// adjusts healthbar to start
 		healthBar.setMaxHealth(data.maxHealth);
@@ -185,7 +189,7 @@ public class PlayerController : MonoBehaviour
 				// attack
 
 				// checks if attacking
-				if ((Input.GetButton("Attack") || Input.GetAxis("Attack") > 0.5f) && chainAttackFinished && swingAttackProgress == -1 && castSpellProgress == -1)
+				if ((Input.GetButton("Attack") || Input.GetAxis("Attack") > 0.5f) && chainAttackFinished && swingAttackProgress == -1 && castSpellProgress == -1 && data.weapons.Count > 0)
 				{
 					// remembers weapon equipped at time of attack
 					weaponSelectedBeforeAttack = data.weapons[data.selectedWeapon];
@@ -215,7 +219,7 @@ public class PlayerController : MonoBehaviour
 				}
 
 				// spell
-				if ((Input.GetButton("Spell") || Input.GetAxis("Spell") > 0.5f) && chainAttackFinished && swingAttackProgress == -1 && castSpellProgress == -1)
+				if ((Input.GetButton("Spell") || Input.GetAxis("Spell") > 0.5f) && chainAttackFinished && swingAttackProgress == -1 && castSpellProgress == -1 && data.spells.Count > 0)
 				{
 					// remembers spell equipped at start of attack
 					spellSelectedBeforeAttack = data.spells[data.selectedSpell];
@@ -247,32 +251,40 @@ public class PlayerController : MonoBehaviour
 
 				// sets animation parameters
 
-				// general
+				// general movement
 				animator.SetFloat("horizontalSpeed", Mathf.Abs(xSpeed));
 				animator.SetBool("jumping", jumping);
 				animator.SetBool("falling", falling);
 
 				animator.SetBool("hitCooldown", hitCooldown);
 
-				// swing weapons
-				animator.SetFloat("weaponSpeed", weaponSelectedBeforeAttack.speed);
-				animator.SetBool("swingAttack", swingAttack);
-				animator.SetFloat("swingAttackProgress", swingAttackProgress);
-
-				// makes sure swing attack is started up if animation didn't finish
-				if (swingAttackProgress != -1f)
+				// makes sure player has weapons
+				if(data.weapons.Count > 0)
 				{
-					if (data.weapons[data.selectedWeapon].GetType() == typeof(Weapon)) animator.SetBool("swingAttack", true);
-				}
+					// swing weapons
+					animator.SetFloat("weaponSpeed", weaponSelectedBeforeAttack.speed);
+					animator.SetBool("swingAttack", swingAttack);
+					animator.SetFloat("swingAttackProgress", swingAttackProgress);
 
-				// chain weapons
-				animator.SetBool("chainAttack", chainAttack);
-				animator.SetBool("chainAttackFinished", chainAttackFinished);
+					// makes sure swing attack is started up if animation didn't finish
+					if (swingAttackProgress != -1f)
+					{
+						if (data.weapons[data.selectedWeapon].GetType() == typeof(Weapon)) animator.SetBool("swingAttack", true);
+					}
+
+					// chain weapons
+					animator.SetBool("chainAttack", chainAttack);
+					animator.SetBool("chainAttackFinished", chainAttackFinished);
+				}
 				
-				// spells
-				animator.SetFloat("spellSpeed", spellSelectedBeforeAttack.speed);
-				animator.SetBool("castSpell", castSpell);
-				animator.SetFloat("castSpellProgress", castSpellProgress);
+				// makes sure player has spells
+				if (data.spells.Count > 0)
+				{
+					// spells
+					animator.SetFloat("spellSpeed", spellSelectedBeforeAttack.speed);
+					animator.SetBool("castSpell", castSpell);
+					animator.SetFloat("castSpellProgress", castSpellProgress);
+				}				
 
 				// makes sure spell casting is started up if animation didn't finish
 				if (castSpellProgress != -1f)
@@ -522,33 +534,51 @@ public class PlayerController : MonoBehaviour
             Destroy(oldController.gameObject);
         }
 
-		if (data.weapons.Count > data.selectedWeapon)
+		// checks if player has weapons
+		if (data.weapons.Count > 0)
 		{
-			// chain weapon controller
-			if (parts.weapon.GetType() == typeof(ChainWeapon))
+			// checks if selection index is not out of max range
+			if (data.selectedWeapon >= data.weapons.Count)
 			{
-				// clears old events
-				parts.weapon.transform.Find("ChainWeapon").GetComponent<ChainWeaponController>().ClearEvents();
+				data.selectedWeapon = data.weapons.Count - 1;
 
-				// adds controller as child if applicable
-				if (data.weapons[data.selectedWeapon].controller != null)
-				{
-					GameObject controllerChild = Instantiate(data.weapons[data.selectedWeapon].controller, parts.weapon.transform);
-					controllerChild.name = "Controller";
-				}
+
 			}
-			// swing weapon controller
-			else
+			// makes sure selection is non-negative
+			else if (data.selectedWeapon >= 0)
 			{
-				// clears old events
-				parts.weapon.transform.Find("SwingWeapon").GetComponent<SwingWeaponController>().ClearEvents();
+				data.selectedWeapon = 0;
+			}
+		}
+		else
+		{
+			return;
+		}
 
-				// adds controller as child if applicable
-				if (data.weapons[data.selectedWeapon].controller != null)
-				{
-					GameObject controllerChild = Instantiate(data.weapons[data.selectedWeapon].controller, parts.weapon.transform);
-					controllerChild.name = "Controller";
-				}
+		// chain weapon controller
+		if (parts.weapon.GetType() == typeof(ChainWeapon))
+		{
+			// clears old events
+			parts.weapon.transform.Find("ChainWeapon").GetComponent<ChainWeaponController>().ClearEvents();
+
+			// adds controller as child if applicable
+			if (data.weapons[data.selectedWeapon].controller != null)
+			{
+				GameObject controllerChild = Instantiate(data.weapons[data.selectedWeapon].controller, parts.weapon.transform);
+				controllerChild.name = "Controller";
+			}
+		}
+		// swing weapon controller
+		else
+		{
+			// clears old events
+			parts.weapon.transform.Find("SwingWeapon").GetComponent<SwingWeaponController>().ClearEvents();
+
+			// adds controller as child if applicable
+			if (data.weapons[data.selectedWeapon].controller != null)
+			{
+				GameObject controllerChild = Instantiate(data.weapons[data.selectedWeapon].controller, parts.weapon.transform);
+				controllerChild.name = "Controller";
 			}
 		}
 	}
@@ -566,15 +596,32 @@ public class PlayerController : MonoBehaviour
 			Destroy(oldController.gameObject);
 		}
 
-		if (data.spells.Count > data.selectedSpell)
+		// checks if player has spells
+		if (data.spells.Count > 0)
 		{
-			// adds controller as child if applicable
-			if (data.spells[data.selectedSpell].controller != null)
+			// checks if selection index is not out of max range
+			if (data.selectedSpell >= data.spells.Count)
 			{
-				GameObject controllerChild = Instantiate(data.spells[data.selectedSpell].controller, parts.spell.transform);
-				controllerChild.name = "Controller";
+				data.selectedSpell = data.spells.Count - 1;
+
+
+			}
+			// makes sure selection is non-negative
+			else if (data.selectedSpell >= 0)
+			{
+				data.selectedSpell = 0;
 			}
 		}
-		
+		else
+		{
+			return;
+		}
+
+		// adds controller as child if applicable
+		if (data.spells[data.selectedSpell].controller != null)
+		{
+			GameObject controllerChild = Instantiate(data.spells[data.selectedSpell].controller, parts.spell.transform);
+			controllerChild.name = "Controller";
+		}
 	}
 }

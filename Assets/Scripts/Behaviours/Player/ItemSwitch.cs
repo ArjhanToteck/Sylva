@@ -54,7 +54,7 @@ public class ItemSwitch : MonoBehaviour
 		currentSelection = originalSelection;
 		this.callback = callback;
 
-		ShowItems();
+		if(items.Count > 0) ShowItems();
 	}
 
 	void ShowItems()
@@ -122,100 +122,103 @@ public class ItemSwitch : MonoBehaviour
 		// checks if switching item currently
 		if (switchingItem)
 		{
-			// choosing item to right
-			if(Input.GetAxisRaw("SwitchItemDirection") > 0.75f)
+			if(items.Count > 0)
 			{
-				// checks if already moving and not yet quick changing
-				if (buttonDown && !quickChanging)
+				// choosing item to right
+				if (Input.GetAxisRaw("SwitchItemDirection") > 0.75f)
 				{
-					// waits for a second before moving quickly again
-					waitBeforeQuickChange -= Time.unscaledDeltaTime;
+					// checks if already moving and not yet quick changing
+					if (buttonDown && !quickChanging)
+					{
+						// waits for a second before moving quickly again
+						waitBeforeQuickChange -= Time.unscaledDeltaTime;
 
-					// returns if quick change wait isn't over
-					if (waitBeforeQuickChange > 0)
-					{
-						return;
+						// returns if quick change wait isn't over
+						if (waitBeforeQuickChange > 0)
+						{
+							return;
+						}
+						else
+						{
+							quickChanging = true;
+							quickChangeTime = 0f;
+						}
 					}
-					else
+
+					// checks if quick changing
+					if (quickChanging)
 					{
-						quickChanging = true;
-						quickChangeTime = 0f;
+						// lowers timer
+						if (quickChangeTime > 0f)
+						{
+							quickChangeTime -= Time.unscaledDeltaTime;
+							return;
+						}
+						else
+						{
+							quickChangeTime = 0.1f;
+						}
 					}
+
+					buttonDown = true;
+
+					// selects next item if not last item
+					if (currentSelection < items.Count - 1) currentSelection += 1;
+
+					// refreshes UI
+					ShowItems();
 				}
-
-				// checks if quick changing
-				if (quickChanging)
+				// choosing item to left
+				else if (Input.GetAxisRaw("SwitchItemDirection") < -0.75f)
 				{
-					// lowers timer
-					if(quickChangeTime > 0f)
+					// checks if already moving and not yet quick changing
+					if (buttonDown && !quickChanging)
 					{
-						quickChangeTime -= Time.unscaledDeltaTime;
-						return;
+						// waits for a second before moving quickly again
+						waitBeforeQuickChange -= Time.unscaledDeltaTime;
+
+						// returns if quick change wait isn't over
+						if (waitBeforeQuickChange > 0)
+						{
+							return;
+						}
+						else
+						{
+							quickChanging = true;
+							quickChangeTime = 0f;
+						}
 					}
-					else
+
+					// checks if quick changing
+					if (quickChanging)
 					{
-						quickChangeTime = 0.1f;
+						// lowers timer
+						if (quickChangeTime > 0f)
+						{
+							quickChangeTime -= Time.unscaledDeltaTime;
+							return;
+						}
+						else
+						{
+							quickChangeTime = 0.1f;
+						}
 					}
+
+					buttonDown = true;
+
+					// selects previous item if not first item
+					if (currentSelection > 0) currentSelection -= 1;
+
+					// refreshes UI
+					ShowItems();
 				}
-
-				buttonDown = true;
-
-				// selects next item if not last item
-				if(currentSelection < items.Count -1) currentSelection += 1;
-
-				// refreshes UI
-				ShowItems();
-			}
-			// choosing item to left
-			else if (Input.GetAxisRaw("SwitchItemDirection") < -0.75f)
-			{
-				// checks if already moving and not yet quick changing
-				if (buttonDown && !quickChanging)
+				else
 				{
-					// waits for a second before moving quickly again
-					waitBeforeQuickChange -= Time.unscaledDeltaTime;
-
-					// returns if quick change wait isn't over
-					if (waitBeforeQuickChange > 0)
-					{
-						return;
-					}
-					else
-					{
-						quickChanging = true;
-						quickChangeTime = 0f;
-					}
+					quickChanging = false;
+					buttonDown = false;
+					waitBeforeQuickChange = 0.6f;
 				}
-
-				// checks if quick changing
-				if (quickChanging)
-				{
-					// lowers timer
-					if (quickChangeTime > 0f)
-					{
-						quickChangeTime -= Time.unscaledDeltaTime;
-						return;
-					}
-					else
-					{
-						quickChangeTime = 0.1f;
-					}
-				}
-
-				buttonDown = true;
-
-				// selects previous item if not first item
-				if (currentSelection > 0) currentSelection -= 1;
-
-				// refreshes UI
-				ShowItems();
-			}
-			else
-			{
-				quickChanging = false;
-				buttonDown = false;
-				waitBeforeQuickChange = 0.6f;
-			}
+			}			
 		}
 	}
 }
