@@ -15,14 +15,5 @@ public class ChainWeapon : Weapon
 		this.speed = speed;
 		this.knockback = knockback;
 		this.range = range;
-
-		OnHit = (GameObject gameObject, Collider2D enemy) =>
-		{
-			Vector2 adjustedKnockback = knockback;
-
-			if (enemy.transform.position.x < gameObject.transform.position.x) adjustedKnockback.x *= -1f;
-
-			enemy.GetComponent<EnemyController>().TakeHit(damage, adjustedKnockback);
-		};
 	}
 }

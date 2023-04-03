@@ -8,13 +8,20 @@ public class Weapon : Item
 
 	public GameObject controller; // this is a child game object that can do more complex things with items such as sound effects, popups, and debuffs and is usually a loaded prefab 
 
-	public float damage;
+	public int damage;
 
 	public Vector2 knockback;
 
 	public float speed = 1f;
 
-	public Action<GameObject, Collider2D> OnHit;
+	public virtual void OnHit(GameObject gameObject, Collider2D enemy)
+	{
+		Vector2 adjustedKnockback = knockback;
+
+		if (enemy.transform.position.x < gameObject.transform.position.x) adjustedKnockback.x *= -1f;
+
+		enemy.GetComponent<EnemyController>().TakeHit(damage, adjustedKnockback);
+	}
 
 	// constructor
 	public Weapon(string name, string description, int damage, float speed, Vector2 knockback)
@@ -24,14 +31,5 @@ public class Weapon : Item
 		this.damage = damage;
 		this.speed = speed;
 		this.knockback = knockback;
-
-		OnHit = (GameObject gameObject, Collider2D enemy) =>
-		{
-			Vector2 adjustedKnockback = knockback;
-
-			if (enemy.transform.position.x < gameObject.transform.position.x) adjustedKnockback.x *= -1f;
-
-			enemy.GetComponent<EnemyController>().TakeHit(damage, adjustedKnockback);
-		};
 	}
 }

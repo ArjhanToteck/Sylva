@@ -541,11 +541,9 @@ public class PlayerController : MonoBehaviour
 			if (data.selectedWeapon >= data.weapons.Count)
 			{
 				data.selectedWeapon = data.weapons.Count - 1;
-
-
 			}
 			// makes sure selection is non-negative
-			else if (data.selectedWeapon >= 0)
+			else if (data.selectedWeapon < 0)
 			{
 				data.selectedWeapon = 0;
 			}
@@ -607,7 +605,7 @@ public class PlayerController : MonoBehaviour
 
 			}
 			// makes sure selection is non-negative
-			else if (data.selectedSpell >= 0)
+			else if (data.selectedSpell < 0)
 			{
 				data.selectedSpell = 0;
 			}
