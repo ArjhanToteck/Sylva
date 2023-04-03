@@ -174,9 +174,6 @@ public class DialogueManager : MonoBehaviour
 			}
 		}
 
-		// ensures all characters are shown at the end
-		textObject.maxVisibleCharacters = dialogue.dialogue.Length;
-
 		// checks if there is an attatched speaker animator and animation for when finished talking
 		if (!!speakerAnimator && !!dialogue.doneTalkingClip)
 		{

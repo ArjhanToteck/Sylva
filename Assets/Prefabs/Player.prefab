@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 809091601
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -7062278390106023213, guid: b9e531b8eacc9434289ba00f352d1d5a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -163,22 +163,15 @@ MonoBehaviour:
   falling: 0
   justLanded: 0
   hitCooldown: 0
+  controllable: 1
   swingAttack: 0
   inSwingAttackAnimation: 0
   swingAttackProgress: -1
   chainAttack: 0
   chainAttackFinished: 1
   aimAngle: 0
-  weaponSelectedBeforeAttack:
-    icon: {fileID: 0}
-    sprite: {fileID: 0}
-    controller: {fileID: 0}
   castSpell: 0
   castSpellProgress: -1
-  spellSelectedBeforeAttack:
-    icon: {fileID: 0}
-    sprite: {fileID: 0}
-    controller: {fileID: 0}
   data:
     maxHealth: 10
     health: 10
@@ -188,6 +181,26 @@ MonoBehaviour:
     selectedWeapon: 1
     selectedSpell: 0
     hair: {fileID: 2800000, guid: a4a6b00b0f71a3047bdf8c4018f55cc8, type: 3}
+    hairColor: {r: 0.2, g: 0, b: 0, a: 1}
+    skinColor: {r: 0.8, g: 0.6, b: 0.5, a: 1}
+    weapons:
+    - {fileID: 11400000, guid: bffb8085d84c07c49a23e05fd1e11965, type: 2}
+    - {fileID: 11400000, guid: d99df4672a237044f927e7f51df16716, type: 2}
+    - {fileID: 11400000, guid: f6831ec7e43ef7745885c964f0292503, type: 2}
+    - {fileID: 11400000, guid: 793eefd56aa00d7499642df7c3047afe, type: 2}
+    - {fileID: 11400000, guid: 97666bb8ac5c4cc48bf2c5421a3f10a7, type: 2}
+    - {fileID: 11400000, guid: 3f3975494bf523d4d8f43235eccf2eb9, type: 2}
+    - {fileID: 11400000, guid: 761ef38777e75db42825b5c579a9410e, type: 2}
+    - {fileID: 11400000, guid: 10feb29d8c631a545916fa25fd9054bd, type: 2}
+    spells:
+    - {fileID: 11400000, guid: 932954204ee68cc47b1cf24f30ab0171, type: 2}
+    - {fileID: 11400000, guid: 96841302fc0c72d4d903ea31681705d9, type: 2}
+    - {fileID: 11400000, guid: ed3057fbf2aa26749a249ad15b3008cf, type: 2}
+    - {fileID: 11400000, guid: b835c19eec1fbfc4a99667e2d04f090f, type: 2}
+    armor:
+      helmet: {fileID: 11400000, guid: 1c0de6c63d1a1764095bd0a535c6e108, type: 2}
+      shirt: {fileID: 11400000, guid: 194306d82a933e34a94aecd1a8ed84c3, type: 2}
+      pants: {fileID: 11400000, guid: 3c02d34439a2186479a90bc26ce9a7cb, type: 2}
 --- !u!114 &8682415503203649532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,10 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1336557ff7cd340a70ebb5a5003a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon:
-    icon: {fileID: 0}
-    sprite: {fileID: 0}
-    controller: {fileID: 0}
+  weapon: {fileID: 0}
   playerController: {fileID: 8682415503203649522}
   collider: {fileID: 8682415503586811413}
   spriteRenderer: {fileID: 8682415503586811412}
@@ -524,7 +534,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2055862529
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 937f94ad734cacd4899650e908ea83b6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -581,10 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32524759024da214bbd7f543b4cc3a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell:
-    icon: {fileID: 0}
-    sprite: {fileID: 0}
-    controller: {fileID: 0}
+  spell: {fileID: 0}
   playerController: {fileID: 8682415503203649522}
 --- !u!1 &8682415503629784780
 GameObject:
@@ -826,7 +833,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 809091601
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 34144487, guid: f9315d91bac37504eaea222a945cff63, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -911,7 +918,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 809091601
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: -669385469, guid: c1d14f416f28c6b448d1c2650c9bb69e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1222,7 +1229,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2055862529
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8df54fed6e6d7904eb97586245e05443, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1307,7 +1314,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 809091601
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 850949570, guid: ee88a26bc45e4c04dacfbe033445c840, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1622,7 +1629,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 809091601
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 6891064574676300275, guid: e65a44e39b51b3f42ba3251102de1003, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1707,7 +1714,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 809091601
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -2114437738713760606, guid: a4a6b00b0f71a3047bdf8c4018f55cc8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1792,7 +1799,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2055862529
-  m_SortingLayer: 6
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 38cbb97e49b829c4ea6a3c052a43ddd0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1963,11 +1970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab5db4e9a8fc4c4580687570ce05f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon:
-    icon: {fileID: 0}
-    sprite: {fileID: 0}
-    controller: {fileID: 0}
-    chainSprite: {fileID: 0}
+  weapon: {fileID: 0}
   playerController: {fileID: 8682415503203649522}
   origin: {fileID: 8682415503374875870}
   head: {fileID: 8682415504865437761}
@@ -2069,7 +2072,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 809091601
-  m_SortingLayer: 4
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -357626597, guid: f0df1c9390519804fb51f103d108776e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

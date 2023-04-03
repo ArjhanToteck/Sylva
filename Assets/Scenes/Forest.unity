@@ -194,7 +194,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1736973053
-  m_SortingLayer: 1
+  m_SortingLayer: -2
   m_SortingOrder: 1
   m_Sprite: {fileID: -540476664, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -333,7 +333,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &170379762
 GameObject:
@@ -566,7 +566,7 @@ Transform:
   m_Children:
   - {fileID: 1368362039}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &416720383
 GameObject:
@@ -599,7 +599,7 @@ Transform:
   - {fileID: 1762940093}
   - {fileID: 1431870089}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &483555380
 GameObject:
@@ -635,7 +635,7 @@ RectTransform:
   - {fileID: 170379763}
   - {fileID: 2069907798}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -784,120 +784,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 880782451}
   m_CullTransparentMesh: 1
---- !u!1 &1148644345
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1148644347}
-  - component: {fileID: 1148644348}
-  m_Layer: 0
-  m_Name: LoadItems
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1148644347
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148644345}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1148644348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148644345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58fad49151957bd4883f054780d1d5c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  items:
-    defaultShirt:
-      icon: {fileID: 0}
-      spriteSheet: {fileID: 2800000, guid: e65a44e39b51b3f42ba3251102de1003, type: 3}
-      sleevesSpritesheet: {fileID: 2800000, guid: f9315d91bac37504eaea222a945cff63, type: 3}
-      controller: {fileID: 0}
-    defaultPants:
-      icon: {fileID: 0}
-      spriteSheet: {fileID: 2800000, guid: b9e531b8eacc9434289ba00f352d1d5a, type: 3}
-      sleevesSpritesheet: {fileID: 0}
-      controller: {fileID: 0}
-    topHat:
-      icon: {fileID: 0}
-      spriteSheet: {fileID: 2800000, guid: c1d14f416f28c6b448d1c2650c9bb69e, type: 3}
-      sleevesSpritesheet: {fileID: 0}
-      controller: {fileID: 0}
-    acidSpray:
-      icon: {fileID: 21300000, guid: cb5e624538c77454e885b37a879fafd2, type: 3}
-      sprite: {fileID: 21300000, guid: cb5e624538c77454e885b37a879fafd2, type: 3}
-      controller: {fileID: 793498531443850031, guid: a1b0a6f41f1dfd047838d4e3a11bac5d, type: 3}
-    bouncingFlame:
-      icon: {fileID: 0}
-      sprite: {fileID: 0}
-      controller: {fileID: 0}
-    tempest:
-      icon: {fileID: 21300000, guid: 7e9e14e13f58cd04099d0cd1f987f12f, type: 3}
-      sprite: {fileID: 21300000, guid: 7e9e14e13f58cd04099d0cd1f987f12f, type: 3}
-      controller: {fileID: 0}
-    minorHealing:
-      icon: {fileID: 0}
-      sprite: {fileID: 0}
-      controller: {fileID: 0}
-    apprenticeShortSword:
-      icon: {fileID: 21300000, guid: fa97c43dd1ee6bc4d86c41824a025ea4, type: 3}
-      sprite: {fileID: 21300000, guid: fa97c43dd1ee6bc4d86c41824a025ea4, type: 3}
-      controller: {fileID: 0}
-    comicallyLargeSpoon:
-      icon: {fileID: 21300000, guid: 1746d9dfae5471b46be315b4b4a8a549, type: 3}
-      sprite: {fileID: 21300000, guid: 1746d9dfae5471b46be315b4b4a8a549, type: 3}
-      controller: {fileID: 0}
-    electricGuitar:
-      icon: {fileID: 21300000, guid: 68bcd512715db3b45851644646456178, type: 3}
-      sprite: {fileID: 21300000, guid: 68bcd512715db3b45851644646456178, type: 3}
-      controller: {fileID: 4314822857358087215, guid: 75742c1b1ed5aac408fa4a7863201611, type: 3}
-    fistOfArdor:
-      icon: {fileID: 21300000, guid: 937f94ad734cacd4899650e908ea83b6, type: 3}
-      sprite: {fileID: 21300000, guid: 937f94ad734cacd4899650e908ea83b6, type: 3}
-      controller: {fileID: 9060664754648554158, guid: bc6701480a1a52b49a53b2de3fefa0e5, type: 3}
-    ironMace:
-      icon: {fileID: 21300000, guid: 4a225940578d7c7468be7b9c1ef30ffa, type: 3}
-      sprite: {fileID: 21300000, guid: 4a225940578d7c7468be7b9c1ef30ffa, type: 3}
-      controller: {fileID: 0}
-    steelWarHammer:
-      icon: {fileID: 21300000, guid: 15a22faca0446634b90816bab353baf2, type: 3}
-      sprite: {fileID: 21300000, guid: 15a22faca0446634b90816bab353baf2, type: 3}
-      controller: {fileID: 0}
-    viperKnife:
-      icon: {fileID: 21300000, guid: aba1297c0e307094c881ca97cca61dbc, type: 3}
-      sprite: {fileID: 21300000, guid: aba1297c0e307094c881ca97cca61dbc, type: 3}
-      controller: {fileID: 0}
-    flail:
-      icon: {fileID: 21300000, guid: 126641396b6a0a64083e9a3716379393, type: 3}
-      sprite: {fileID: 21300000, guid: 38cbb97e49b829c4ea6a3c052a43ddd0, type: 3}
-      controller: {fileID: 9060664754648554158, guid: 6c041179268a744488947f8e48aa2fb7, type: 3}
-      chainSprite: {fileID: 21300000, guid: 8df54fed6e6d7904eb97586245e05443, type: 3}
-    serpentTongue:
-      icon: {fileID: 0}
-      sprite: {fileID: 0}
-      controller: {fileID: 0}
-      chainSprite: {fileID: 0}
 --- !u!1 &1258958950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,7 +931,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1736973053
-  m_SortingLayer: 1
+  m_SortingLayer: -2
   m_SortingOrder: 1
   m_Sprite: {fileID: -540476664, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1156,7 +1042,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 888574807
-  m_SortingLayer: 2
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0e7e3bdbf1f709040a8fc6cf765350a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1200,7 +1086,7 @@ Transform:
   - {fileID: 1920754516}
   - {fileID: 389777720}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1431870088
 GameObject:
@@ -1276,7 +1162,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1736973053
-  m_SortingLayer: 1
+  m_SortingLayer: -2
   m_SortingOrder: 1
   m_Sprite: {fileID: -540476664, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1452,7 +1338,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1736973053
-  m_SortingLayer: 1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1026938305, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1630,7 +1516,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1736973053
-  m_SortingLayer: 1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1026938305, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1725,7 +1611,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1841646836
 GameObject:
@@ -1933,7 +1819,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1736973053
-  m_SortingLayer: 1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -1026938305, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2071,7 +1957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7634063405368135355, guid: 3a9a15f76af717642bf63cfb318fb744, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7634063405368135355, guid: 3a9a15f76af717642bf63cfb318fb744, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2122,6 +2008,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1404291636}
     m_Modifications:
+    - target: {fileID: 8682415503203649522, guid: e6a912a51aae11e43af1131f54fe79b8, type: 3}
+      propertyPath: data.test
+      value: 
+      objectReference: {fileID: 11400000, guid: e10cd6fbf0a3d434795ceeabba18d066, type: 2}
     - target: {fileID: 8682415503203649522, guid: e6a912a51aae11e43af1131f54fe79b8, type: 3}
       propertyPath: healthBar
       value: 

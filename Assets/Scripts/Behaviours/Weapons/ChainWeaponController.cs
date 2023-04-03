@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ChainWeaponController : MonoBehaviour
 {
-	public Item.Weapon.ChainWeapon weapon;
+	public ChainWeapon weapon;
 	public PlayerController playerController;
 	public Transform origin;
 	public SpriteRenderer head;
@@ -31,7 +31,7 @@ public class ChainWeaponController : MonoBehaviour
 		goingForward = true;
 
         // gets weapon data
-		weapon = (Item.Weapon.ChainWeapon)playerController.data.weapons[playerController.data.selectedWeapon];
+		weapon = (ChainWeapon)playerController.data.weapons[playerController.data.selectedWeapon];
 
         // sets proper sprites
         chain.sprite = weapon.chainSprite;
