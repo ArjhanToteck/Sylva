@@ -57,7 +57,7 @@ public class Conversation : ScriptableObject
 		public UnityAction action;
 
 		// will generally have one or the other, never both of these
-		public Dialogue[] attatchedDialogue;
+		public Dialogue[] attatchedDialogues;
 		public Conversation attatchedConversation;
 	}
 }

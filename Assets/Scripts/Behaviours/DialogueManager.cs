@@ -60,10 +60,17 @@ public class DialogueManager : MonoBehaviour
 
 	public void StartConversation(Conversation conversation)
 	{
-		StartCoroutine(StartConversationCoroutine(conversation));
+		StartCoroutine(StartConversationCoroutine(conversation, true));
 	}
 
-	public IEnumerator StartConversationCoroutine(Conversation conversation)
+	public void StartDialogue(Conversation.Dialogue dialogue)
+	{
+		FindObjectOfType<PlayerController>().controllable = false;
+
+		StartCoroutine(StartDialogueCoroutine(dialogue));
+	}
+
+	IEnumerator StartConversationCoroutine(Conversation conversation, bool finishAllConversations)
 	{
 		// takes away player control
 		bool previouslyControllable = FindObjectOfType<PlayerController>().controllable;
@@ -74,18 +81,22 @@ public class DialogueManager : MonoBehaviour
 			yield return StartCoroutine(StartDialogueCoroutine(dialogue));
 		}
 
-		// gives back player control
-		if (previouslyControllable) FindObjectOfType<PlayerController>().StartControl();
+		if (finishAllConversations)
+		{
+			// gives back player control
+			if (previouslyControllable) FindObjectOfType<PlayerController>().StartControl();
 
-		// hides dialogue box
-		gameObject.SetActive(false);
+			// hides dialogue box
+			gameObject.SetActive(false);
+		}			
 	}
 
-	public void StartDialogue(Conversation.Dialogue dialogue)
+	IEnumerator StartDialoguesCoroutine(Conversation.Dialogue[] dialogues)
 	{
-		FindObjectOfType<PlayerController>().controllable = false;
-
-		StartCoroutine(StartDialogueCoroutine(dialogue));
+		foreach(Conversation.Dialogue dialogue in dialogues)
+		{
+			yield return StartCoroutine(StartDialogueCoroutine(dialogue));
+		}
 	}
 
 	IEnumerator StartDialogueCoroutine(Conversation.Dialogue dialogue)
@@ -184,9 +195,9 @@ public class DialogueManager : MonoBehaviour
 		}
 
 		// checks if there are choices attatched
-		if(dialogue.choices != null && dialogue.choices.Length > 0)
+		if (dialogue.choices != null && dialogue.choices.Length > 0)
 		{
-			string choiceMade = null;
+			Conversation.Choice choiceMade = null;
 
 			float totalHeight = dialogue.choices.Length * (choicePrefab.GetComponent<RectTransform>().rect.height + choiceSpacing);
 
@@ -194,7 +205,7 @@ public class DialogueManager : MonoBehaviour
 			for (int i = 0; i < dialogue.choices.Length; i++)
 			{
 				// last to first so the last choice is at the bottom
-				string choice = dialogue.choices[dialogue.choices.Length - 1 - i].text;
+				Conversation.Choice choice = dialogue.choices[dialogue.choices.Length - 1 - i];
 
 				// creates new choice object from prefab
 				GameObject choiceObject = Instantiate(choicePrefab);
@@ -208,7 +219,7 @@ public class DialogueManager : MonoBehaviour
 				choiceObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, i * (choiceObject.GetComponent<RectTransform>().sizeDelta.y + choiceSpacing));
 
 				// labels choice
-				choiceObject.transform.Find("Label").GetComponent<TMP_Text>().text = choice;
+				choiceObject.transform.Find("Label").GetComponent<TMP_Text>().text = choice.text;
 
 				// adds consequence function to onclick of choice
 				choiceObject.GetComponent<Button>().onClick.AddListener(delegate
@@ -225,9 +236,24 @@ public class DialogueManager : MonoBehaviour
 			}
 
 			// destroys choices
-			foreach(Transform child in choiceContainer)
+			foreach (Transform child in choiceContainer)
 			{
 				Destroy(child.gameObject);
+			}
+
+			// invokes action attatched to choice
+			if (choiceMade.action != null) choiceMade.action.Invoke();
+
+			// plays attatched dialogues
+			if (choiceMade.attatchedDialogues != null && choiceMade.attatchedDialogues.Length > 0)
+			{
+				yield return StartCoroutine(StartDialoguesCoroutine(choiceMade.attatchedDialogues));
+			}
+
+			// plays attatched conversation
+			if (choiceMade.attatchedConversation != null)
+			{
+				yield return StartCoroutine(StartConversationCoroutine(choiceMade.attatchedConversation, false));
 			}
 		}
 		else
