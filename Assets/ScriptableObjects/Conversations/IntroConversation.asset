@@ -59,22 +59,29 @@ MonoBehaviour:
       attatchedDialogues:
       - speakerName: "Agost\xFDn"
         dialogue: Well, then, you've certainly chosen the right profession.
-        interval: 0
+        interval: 0.05
         choices: []
-        talkingClip: {fileID: 0}
-        doneTalkingClip: {fileID: 0}
+        talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
+        doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
       attatchedConversation: {fileID: 0}
     - text: It's all I have left.
-      attatchedDialogues: []
+      attatchedDialogues:
+      - speakerName: "Agost\xFDn"
+        dialogue: Well...
+        interval: 0.05
+        choices: []
+        talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
+        doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
       attatchedConversation: {fileID: 0}
     - text: I guess I might be a little stupid.
       attatchedDialogues:
       - speakerName: "Agost\xFDn"
-        dialogue: That's alright. We need stupid people.
-        interval: 0
+        dialogue: That's quite alright. We could certainly use <color=red>stupid
+          people</color>.
+        interval: 0.05
         choices: []
-        talkingClip: {fileID: 0}
-        doneTalkingClip: {fileID: 0}
+        talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
+        doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
       attatchedConversation: {fileID: 0}
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}

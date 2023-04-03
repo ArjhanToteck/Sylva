@@ -101,6 +101,10 @@ public class DialogueManager : MonoBehaviour
 
 	IEnumerator StartDialogueCoroutine(Conversation.Dialogue dialogue)
 	{
+		// reset effects
+		shakeIndexes.Clear();
+		wobbleIndexes.Clear();
+
 		// hides continue arrow
 		continueArrow.SetActive(false);
 
