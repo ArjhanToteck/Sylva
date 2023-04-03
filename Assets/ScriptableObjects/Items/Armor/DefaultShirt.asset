@@ -19,6 +19,6 @@ MonoBehaviour:
   sleevesSpritesheet: {fileID: 2800000, guid: f9315d91bac37504eaea222a945cff63, type: 3}
   controller: {fileID: 0}
   armorPart: 1
-  color: {r: 0.3, g: 0.3, b: 0.3, a: 0}
+  color: {r: 0.3, g: 0.3, b: 0.3, a: 1}
   defense: 0
   hideHair: 0
