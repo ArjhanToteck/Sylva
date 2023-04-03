@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "Conversation", menuName = "ScriptableObjects/Conversation", order = 1)]
 public class Conversation : ScriptableObject
@@ -19,7 +20,7 @@ public class Conversation : ScriptableObject
 		/// <summary>
 		/// The actual spoken lines.
 		/// </summary>
-		public string dialogue = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.";
+		public string dialogue = "";
 
 		/// <summary>
 		/// The time, in seconds, between every letter showing up.
@@ -29,7 +30,7 @@ public class Conversation : ScriptableObject
 		/// <summary>
 		/// An array of choices to be presented after the dialogue is finished.
 		/// </summary>
-		public string[] choices;
+		public Choice[] choices;
 
 		/// <summary>
 		/// The animation clip to be played by the speaker while talking.
@@ -40,5 +41,23 @@ public class Conversation : ScriptableObject
 		/// The animation clip to be played by the speaker when finished talking.
 		/// </summary>
 		public AnimationClip doneTalkingClip;
+	}
+
+	[Serializable]
+	public class Choice
+	{
+		/// <summary>
+		/// This label is shown when presented this choice.
+		/// </summary>
+		public string text;
+
+		/// <summary>
+		/// This action will be performed if this choice is made.
+		/// </summary>
+		public UnityAction action;
+
+		// will generally have one or the other, never both of these
+		public Dialogue[] attatchedDialogue;
+		public Conversation attatchedConversation;
 	}
 }

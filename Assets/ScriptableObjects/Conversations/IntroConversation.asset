@@ -17,16 +17,24 @@ MonoBehaviour:
     dialogue: <color=orange><i>Salutos.</i></color>
     interval: 0.05
     choices:
-    - "\"Are you Agost\xFDn?\""
+    - text: "Are you Agost\xFDn?"
+      attatchedDialogue: []
+      attatchedConversation: {fileID: 0}
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
-  - speakerName: "Agost\xFDn?"
+  - speakerName: "Agost\xFDn"
     dialogue: Correct. I would assume you are ${playerName}?
     interval: 0.05
     choices:
-    - That's me.
-    - Pleasure to meet you.
-    - ...
+    - text: That's me.
+      attatchedDialogue: []
+      attatchedConversation: {fileID: 0}
+    - text: Pleased to meet you.
+      attatchedDialogue: []
+      attatchedConversation: {fileID: 0}
+    - text: ...
+      attatchedDialogue: []
+      attatchedConversation: {fileID: 0}
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
   - speakerName: "Agost\xFDn"
@@ -47,9 +55,15 @@ MonoBehaviour:
     dialogue: So, which is it?
     interval: 0.05
     choices:
-    - I need the money.
-    - It's all I have left.
-    - I guess I might be a bit stupid.
+    - text: I need the money.
+      attatchedDialogue: []
+      attatchedConversation: {fileID: 0}
+    - text: It's all I have left.
+      attatchedDialogue: []
+      attatchedConversation: {fileID: 0}
+    - text: I guess I might be a little stupid.
+      attatchedDialogue: []
+      attatchedConversation: {fileID: 0}
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
   - speakerName: "Agost\xFDn"

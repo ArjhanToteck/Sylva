@@ -174,6 +174,9 @@ public class DialogueManager : MonoBehaviour
 			}
 		}
 
+		// makes sure all characters are shown at the end
+		textObject.maxVisibleCharacters = dialogue.dialogue.Length;
+
 		// checks if there is an attatched speaker animator and animation for when finished talking
 		if (!!speakerAnimator && !!dialogue.doneTalkingClip)
 		{
@@ -191,7 +194,7 @@ public class DialogueManager : MonoBehaviour
 			for (int i = 0; i < dialogue.choices.Length; i++)
 			{
 				// last to first so the last choice is at the bottom
-				string choice = dialogue.choices[dialogue.choices.Length - 1 - i];
+				string choice = dialogue.choices[dialogue.choices.Length - 1 - i].text;
 
 				// creates new choice object from prefab
 				GameObject choiceObject = Instantiate(choicePrefab);

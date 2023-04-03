@@ -234,6 +234,12 @@ public class PlayerController : MonoBehaviour
 				{
 					castSpell = false;
 				}
+			} 
+			else
+			{
+				swingAttack = false;
+				chainAttack = false;
+				castSpell = false;
 			}
 
 			// falling
