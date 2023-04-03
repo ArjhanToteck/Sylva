@@ -23,7 +23,7 @@ MonoBehaviour:
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
   - speakerName: "Agost\xFDn"
-    dialogue: Correct. I would assume you are ${playerName}?
+    dialogue: Correct. I would assume you are the new mercenary?
     interval: 0.05
     choices:
     - text: That's me.
@@ -87,8 +87,37 @@ MonoBehaviour:
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
   - speakerName: "Agost\xFDn"
     dialogue: Regardless, we have <color=#03c6fc>a job</color> for you. If you manage
-      to <color=red>not kill yourself</color>, then we'll have ourselves a <color=#03c6fc><wobble>nice
+      to <color=red>not kill yourself</color>, then we'll have ourselves a <color=#03c6fc><wobble>nice,
       beneficial partnership</color></wobble>.
+    interval: 0.05
+    choices:
+    - text: What job?
+      attatchedDialogues: []
+      attatchedConversation: {fileID: 0}
+    - text: Continue.
+      attatchedDialogues: []
+      attatchedConversation: {fileID: 0}
+    - text: ...
+      attatchedDialogues: []
+      attatchedConversation: {fileID: 0}
+    talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
+    doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
+  - speakerName: "Agost\xFDn"
+    dialogue: 'A <color=red>rival</color> thought it was a good idea to set up a
+      little gambling den in our side of the city. '
+    interval: 0.05
+    choices: []
+    talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
+    doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
+  - speakerName: "Agost\xFDn"
+    dialogue: I want you to find them and <shake><color=red>kill them all</color></shake>.
+    interval: 0.05
+    choices: []
+    talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
+    doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
+  - speakerName: "Agost\xFDn"
+    dialogue: You can keep whatever you find there, and I'll throw in a nice sum
+      of <color=#03c6fc>escudos</color> as a bonus.
     interval: 0.05
     choices: []
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
