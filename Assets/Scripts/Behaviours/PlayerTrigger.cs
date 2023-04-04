@@ -6,15 +6,15 @@ using UnityEngine;
 public class PlayerTrigger : MonoBehaviour
 {	public UltEvent onTrigger;
 
-	bool isTriggered = false;
+	bool triggered = false;
 
 	void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (isTriggered) return;
+		if (triggered) return;
 
 		if (collision.CompareTag("Player"))
 		{
-			isTriggered = true;
+			triggered = true;
 			onTrigger.Invoke();
 			Destroy(gameObject);
 		}
