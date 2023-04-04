@@ -7,6 +7,7 @@ public class ConversationPopup : MonoBehaviour
 {
     public GameObject content;
     public Conversation conversation;
+	public Animator speakerAnimator;
 	public ConversationManager dialogueManager;
 	public bool triggered = false;
 
@@ -25,7 +26,7 @@ public class ConversationPopup : MonoBehaviour
 		{
 			triggered = true;
 			dialogueManager.gameObject.SetActive(true);
-			dialogueManager.StartConversation(conversation);
+			dialogueManager.StartConversation(conversation, speakerAnimator);
 		}
 	}
 

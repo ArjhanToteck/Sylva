@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UltEvents;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -45,12 +46,12 @@ public class Conversation : ScriptableObject
 		/// <summary>
 		/// This action is performed before this dialogue is shwon.
 		/// </summary>
-		public UnityEvent onDialogueStart;
+		public UltEvent onDialogueStart;
 
 		/// <summary>
 		/// This action is performed after this dialogue is shwon.
 		/// </summary>
-		public UnityEvent onDialogueEnd;
+		public UltEvent onDialogueEnd;
 	}
 
 	[Serializable]
@@ -64,7 +65,7 @@ public class Conversation : ScriptableObject
 		/// <summary>
 		/// This action is performed when this choice is made.
 		/// </summary>
-		public UnityEvent onChose;
+		public UltEvent onChose;
 
 		// will generally have one or the other, never both of these
 		public Dialogue[] attatchedDialogues;

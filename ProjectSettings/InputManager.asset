@@ -375,7 +375,7 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Talk
-    descriptiveName: 'Talk controller //TODO: set this'
+    descriptiveName: 'Talk controller // TODO: set this'
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: space

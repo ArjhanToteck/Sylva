@@ -9,23 +9,20 @@ public class Quest : ScriptableObject
 {
 	public static List<Quest> quests = new List<Quest>();
 
-	public static void StartQuest(Quest quest)
-	{
-		// TODO: implement this
-	}
-
 	public QuestType questType;
 	public string name;
 	public string description;
-
-	public Quest()
-	{
-		quests.Add(this);
-	}
 
 	public enum QuestType
 	{
 		Main,
 		Side
+	}
+
+	public void StartQuest()
+	{
+		// TODO: implement this
+		quests.Add(this);
+		Debug.Log("poop balls");
 	}
 }

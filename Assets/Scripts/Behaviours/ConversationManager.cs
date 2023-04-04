@@ -13,7 +13,6 @@ public class ConversationManager : MonoBehaviour
 	const float namePadding = 15f;
 	const float choiceSpacing = 10f;
 
-	[Header("Game Objects")]
 	public TMP_Text textObject;
 	public TMP_Text nameObject;
 	public GameObject canvas;
@@ -21,55 +20,25 @@ public class ConversationManager : MonoBehaviour
 	public Transform choiceContainer;
 	public GameObject choicePrefab;
 
-	[Header("Parameters")]
-	public string speakerName = "";
-	public string dialogue = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.";
-	public float interval = 0.1f;
-	public Animator speakerAnimator;
-
-	[SerializeField]
-	public DialogueData dialogueData;
-
 	// animation settings
 	List<int> shakeIndexes = new List<int>();
 	List<int> wobbleIndexes = new List<int>();
 
 	bool addChar = false;
 
-	// lots of helper functions for unity events. fuck unity events.
-	public void SetSpeakerName(string speakerName)
+	public void StartConversation(Conversation conversation, Animator speakerAnimator)
 	{
-		this.speakerName = speakerName;
+		StartCoroutine(StartConversationCoroutine(conversation, speakerAnimator, true));
 	}
 
-	public void SetDialogue(string dialogue)
-	{
-		this.dialogue = dialogue;
-	}
-
-	public void SetInterval(float interval)
-	{
-		this.interval = interval;
-	}
-
-	public void SetSpeakerAnimator(Animator speakerAnimator)
-	{
-		this.speakerAnimator = speakerAnimator;
-	}
-
-	public void StartConversation(Conversation conversation)
-	{
-		StartCoroutine(StartConversationCoroutine(conversation, true));
-	}
-
-	public void StartDialogue(Conversation.Dialogue dialogue)
+	public void StartDialogue(Conversation.Dialogue dialogue, Animator speakerAnimator)
 	{
 		FindObjectOfType<PlayerController>().controllable = false;
 
-		StartCoroutine(StartDialogueCoroutine(dialogue));
+		StartCoroutine(StartDialogueCoroutine(dialogue, speakerAnimator));
 	}
 
-	IEnumerator StartConversationCoroutine(Conversation conversation, bool finishAllConversations)
+	IEnumerator StartConversationCoroutine(Conversation conversation, Animator speakerAnimator, bool finishAllConversations)
 	{
 		// takes away player control
 		bool previouslyControllable = FindObjectOfType<PlayerController>().controllable;
@@ -77,7 +46,7 @@ public class ConversationManager : MonoBehaviour
 
 		foreach (Conversation.Dialogue dialogue in conversation.conversation)
 		{
-			yield return StartCoroutine(StartDialogueCoroutine(dialogue));
+			yield return StartCoroutine(StartDialogueCoroutine(dialogue, speakerAnimator));
 		}
 
 		if (finishAllConversations)
@@ -90,15 +59,15 @@ public class ConversationManager : MonoBehaviour
 		}			
 	}
 
-	IEnumerator StartDialoguesCoroutine(Conversation.Dialogue[] dialogues)
+	IEnumerator StartDialoguesCoroutine(Conversation.Dialogue[] dialogues, Animator speakerAnimator)
 	{
 		foreach(Conversation.Dialogue dialogue in dialogues)
 		{
-			yield return StartCoroutine(StartDialogueCoroutine(dialogue));
+			yield return StartCoroutine(StartDialogueCoroutine(dialogue, speakerAnimator));
 		}
 	}
 
-	IEnumerator StartDialogueCoroutine(Conversation.Dialogue dialogue)
+	IEnumerator StartDialogueCoroutine(Conversation.Dialogue dialogue, Animator speakerAnimator)
 	{
 		// invokes onDialogueStart event
 		if (dialogue.onDialogueStart != null)
@@ -114,18 +83,18 @@ public class ConversationManager : MonoBehaviour
 		continueArrow.SetActive(false);
 
 		// parses text
-		dialogueData = GetDialogueData(dialogue.dialogue);
+		DialogueData dialogueData = GetDialogueData(dialogue.dialogue);
 
 		// sets text and name
 		textObject.text = dialogueData.TMPParsedText;
-		if(speakerName == null || speakerName == "")
+		if(dialogue.speakerName == null || dialogue.speakerName == "")
 		{
 			nameObject.transform.parent.gameObject.SetActive(false);
 		}
 		else
 		{
 			nameObject.transform.parent.gameObject.SetActive(true);
-			nameObject.text = speakerName;
+			nameObject.text = dialogue.speakerName;
 
 			// resizes text box
 			float width = nameObject.preferredWidth * nameObject.GetComponent<RectTransform>().localScale.x + namePadding;
@@ -173,7 +142,7 @@ public class ConversationManager : MonoBehaviour
 				// waits before next character or dialogue is skipped
 				float timer = 0f;
 
-				while (timer < interval)
+				while (timer < dialogue.interval)
 				{
 					timer += Time.deltaTime;
 
@@ -265,13 +234,13 @@ public class ConversationManager : MonoBehaviour
 			// plays attatched dialogues
 			if (choiceMade.attatchedDialogues != null && choiceMade.attatchedDialogues.Length > 0)
 			{
-				yield return StartCoroutine(StartDialoguesCoroutine(choiceMade.attatchedDialogues));
+				yield return StartCoroutine(StartDialoguesCoroutine(choiceMade.attatchedDialogues, speakerAnimator));
 			}
 
 			// plays attatched conversation
 			if (choiceMade.attatchedConversation != null)
 			{
-				yield return StartCoroutine(StartConversationCoroutine(choiceMade.attatchedConversation, false));
+				yield return StartCoroutine(StartConversationCoroutine(choiceMade.attatchedConversation, speakerAnimator, false));
 			}
 		}
 		else

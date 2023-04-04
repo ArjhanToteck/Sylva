@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UltEvents;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class PlayerTrigger : MonoBehaviour
-{	public UnityEvent onTrigger;
+{	public UltEvent onTrigger;
 
 	bool isTriggered = false;
 
