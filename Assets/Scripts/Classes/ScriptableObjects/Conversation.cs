@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Conversation", menuName = "ScriptableObjects/Conversation", order = 1)]
+[CreateAssetMenu(fileName = "Conversation", menuName = "Conversation", order = 1)]
 public class Conversation : ScriptableObject
 {
 	public Dialogue[] conversation;
@@ -41,6 +41,16 @@ public class Conversation : ScriptableObject
 		/// The animation clip to be played by the speaker when finished talking.
 		/// </summary>
 		public AnimationClip doneTalkingClip;
+
+		/// <summary>
+		/// This action is performed before this dialogue is shwon.
+		/// </summary>
+		public UnityEvent onDialogueStart;
+
+		/// <summary>
+		/// This action is performed after this dialogue is shwon.
+		/// </summary>
+		public UnityEvent onDialogueEnd;
 	}
 
 	[Serializable]
@@ -52,9 +62,9 @@ public class Conversation : ScriptableObject
 		public string text;
 
 		/// <summary>
-		/// This action will be performed if this choice is made.
+		/// This action is performed when this choice is made.
 		/// </summary>
-		public UnityAction action;
+		public UnityEvent onChose;
 
 		// will generally have one or the other, never both of these
 		public Dialogue[] attatchedDialogues;

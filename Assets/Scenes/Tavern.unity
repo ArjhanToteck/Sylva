@@ -1575,7 +1575,7 @@ PrefabInstance:
       objectReference: {fileID: 483555380}
     - target: {fileID: 4427108010399723542, guid: a0cd22d2ab1382f4d8b67254b779ec90, type: 3}
       propertyPath: m_Name
-      value: DialogueBox
+      value: ConvserationManager
       objectReference: {fileID: 0}
     - target: {fileID: 4427108010399723542, guid: a0cd22d2ab1382f4d8b67254b779ec90, type: 3}
       propertyPath: m_IsActive
@@ -3901,6 +3901,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1404291636}
     m_Modifications:
+    - target: {fileID: 8682415503203649522, guid: e6a912a51aae11e43af1131f54fe79b8, type: 3}
+      propertyPath: test1
+      value: 
+      objectReference: {fileID: 11400000, guid: cd9868c58afc3dc4394da78f37d1f2e6, type: 2}
+    - target: {fileID: 8682415503203649522, guid: e6a912a51aae11e43af1131f54fe79b8, type: 3}
+      propertyPath: test2
+      value: 
+      objectReference: {fileID: 11400000, guid: cd9868c58afc3dc4394da78f37d1f2e6, type: 2}
     - target: {fileID: 8682415503203649522, guid: e6a912a51aae11e43af1131f54fe79b8, type: 3}
       propertyPath: healthBar
       value: 

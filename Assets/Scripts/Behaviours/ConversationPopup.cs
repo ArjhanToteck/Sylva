@@ -7,7 +7,7 @@ public class ConversationPopup : MonoBehaviour
 {
     public GameObject content;
     public Conversation conversation;
-	public DialogueManager dialogueManager;
+	public ConversationManager dialogueManager;
 	public bool triggered = false;
 
 	void OnTriggerEnter2D(Collider2D collider)

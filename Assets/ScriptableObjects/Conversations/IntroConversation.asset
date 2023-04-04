@@ -13,112 +13,214 @@ MonoBehaviour:
   m_Name: IntroConversation
   m_EditorClassIdentifier: 
   conversation:
-  - speakerName: ???
-    dialogue: <color=orange><i>Salutos.</i></color>
+  - dialogue: <color=orange><i>Salutos.</i></color>
+    speakerName: ???
     interval: 0.05
     choices:
     - text: "Are you Agost\xFDn?"
+      onChose:
+        m_PersistentCalls:
+          m_Calls: []
       attatchedDialogues: []
       attatchedConversation: {fileID: 0}
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
-  - speakerName: "Agost\xFDn"
-    dialogue: Correct. I would assume you are the new mercenary?
+    onDialogueStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onDialogueEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - dialogue: Correct. I would assume you are the new mercenary?
+    speakerName: "Agost\xFDn"
     interval: 0.05
     choices:
     - text: That's me.
+      onChose:
+        m_PersistentCalls:
+          m_Calls: []
       attatchedDialogues: []
       attatchedConversation: {fileID: 0}
     - text: Pleased to meet you.
+      onChose:
+        m_PersistentCalls:
+          m_Calls: []
       attatchedDialogues: []
       attatchedConversation: {fileID: 0}
     - text: ...
+      onChose:
+        m_PersistentCalls:
+          m_Calls: []
       attatchedDialogues: []
       attatchedConversation: {fileID: 0}
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
-  - speakerName: "Agost\xFDn"
-    dialogue: Right. Well, now that we're well acquainted, let's talk <color=#03c6fc>business</color>.
+    onDialogueStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onDialogueEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - dialogue: Right. Well, now that we're well acquainted, let's talk <color=#03c6fc>business</color>.
+    speakerName: "Agost\xFDn"
     interval: 0.05
     choices: []
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
-  - speakerName: "Agost\xFDn"
-    dialogue: If you're joining the <color=#03c6fc>Syndicate</color>, it means you're
+    onDialogueStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onDialogueEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - dialogue: If you're joining the <color=#03c6fc>Syndicate</color>, it means you're
       <color=red>desperate</color>, you're <color=red>exceptionally daring</color>,
       or you just <color=red>don't know what you're getting into</color>.
+    speakerName: "Agost\xFDn"
     interval: 0.05
     choices: []
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
-  - speakerName: "Agost\xFDn"
-    dialogue: So, which is it?
+    onDialogueStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onDialogueEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - dialogue: So, which is it?
+    speakerName: "Agost\xFDn"
     interval: 0.05
     choices:
     - text: I need the money.
+      onChose:
+        m_PersistentCalls:
+          m_Calls: []
       attatchedDialogues:
-      - speakerName: "Agost\xFDn"
-        dialogue: Well, then, you've certainly chosen the right profession.
+      - dialogue: Well, then, you've certainly chosen the right profession.
+        speakerName: "Agost\xFDn"
         interval: 0.05
         choices: []
         talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
         doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
+        onDialogueStart:
+          m_PersistentCalls:
+            m_Calls: []
+        onDialogueEnd:
+          m_PersistentCalls:
+            m_Calls: []
       attatchedConversation: {fileID: 0}
     - text: It's all I have left.
+      onChose:
+        m_PersistentCalls:
+          m_Calls: []
       attatchedDialogues:
-      - speakerName: "Agost\xFDn"
-        dialogue: Well...
+      - dialogue: Well...
+        speakerName: "Agost\xFDn"
         interval: 0.05
         choices: []
         talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
         doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
+        onDialogueStart:
+          m_PersistentCalls:
+            m_Calls: []
+        onDialogueEnd:
+          m_PersistentCalls:
+            m_Calls: []
       attatchedConversation: {fileID: 0}
     - text: I guess I might be a little stupid.
+      onChose:
+        m_PersistentCalls:
+          m_Calls: []
       attatchedDialogues:
-      - speakerName: "Agost\xFDn"
-        dialogue: That's quite alright. We could certainly use <color=red>stupid
+      - dialogue: That's quite alright. We could certainly use <color=red>stupid
           people</color>.
+        speakerName: "Agost\xFDn"
         interval: 0.05
         choices: []
         talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
         doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
+        onDialogueStart:
+          m_PersistentCalls:
+            m_Calls: []
+        onDialogueEnd:
+          m_PersistentCalls:
+            m_Calls: []
       attatchedConversation: {fileID: 0}
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
-  - speakerName: "Agost\xFDn"
-    dialogue: Regardless, we have <color=#03c6fc>a job</color> for you. If you manage
+    onDialogueStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onDialogueEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - dialogue: Regardless, we have <color=#03c6fc>a job</color> for you. If you manage
       to <color=red>not kill yourself</color>, then we'll have ourselves a <color=#03c6fc><wobble>nice,
       beneficial partnership</color></wobble>.
+    speakerName: "Agost\xFDn"
     interval: 0.05
     choices:
     - text: What job?
+      onChose:
+        m_PersistentCalls:
+          m_Calls: []
       attatchedDialogues: []
       attatchedConversation: {fileID: 0}
     - text: Continue.
+      onChose:
+        m_PersistentCalls:
+          m_Calls: []
       attatchedDialogues: []
       attatchedConversation: {fileID: 0}
     - text: ...
+      onChose:
+        m_PersistentCalls:
+          m_Calls: []
       attatchedDialogues: []
       attatchedConversation: {fileID: 0}
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
-  - speakerName: "Agost\xFDn"
-    dialogue: 'A <color=red>rival</color> thought it was a good idea to set up a
+    onDialogueStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onDialogueEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - dialogue: 'A <color=red>rival</color> thought it was a good idea to set up a
       little gambling den in our side of the city. '
+    speakerName: "Agost\xFDn"
     interval: 0.05
     choices: []
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
-  - speakerName: "Agost\xFDn"
-    dialogue: I want you to find them and <shake><color=red>kill them all</color></shake>.
+    onDialogueStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onDialogueEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - dialogue: I want you to find them and <shake><color=red>kill them all</color></shake>.
+    speakerName: "Agost\xFDn"
     interval: 0.05
     choices: []
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
-  - speakerName: "Agost\xFDn"
-    dialogue: You can keep whatever you find there, and I'll throw in a nice sum
+    onDialogueStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onDialogueEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - dialogue: You can keep whatever you find there, and I'll throw in a nice sum
       of <color=#03c6fc>escudos</color> as a bonus.
+    speakerName: "Agost\xFDn"
     interval: 0.05
     choices: []
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
     doneTalkingClip: {fileID: 7400000, guid: e935aa8b3abd6764f8bda408bd314074, type: 2}
+    onDialogueStart:
+      m_PersistentCalls:
+        m_Calls: []
+    onDialogueEnd:
+      m_PersistentCalls:
+        m_Calls: []

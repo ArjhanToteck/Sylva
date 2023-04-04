@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Armor", menuName = "ScriptableObjects/Item/Armor", order = 1)]
+[CreateAssetMenu(fileName = "Armor", menuName = "Item/Armor", order = 1)]
 public class Armor : Item
 {
 	public enum ArmorPart

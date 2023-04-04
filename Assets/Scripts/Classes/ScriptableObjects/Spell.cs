@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Spell", menuName = "ScriptableObjects/Item/Spell", order = 1)]
+[CreateAssetMenu(fileName = "Spell", menuName = "Item/Spell", order = 1)]
 public class Spell : Item
 {
 	public Sprite sprite; // this will appear on hand when spell is cast, can be empty

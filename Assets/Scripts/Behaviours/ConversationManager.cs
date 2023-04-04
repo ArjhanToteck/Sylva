@@ -8,7 +8,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
 
-public class DialogueManager : MonoBehaviour
+public class ConversationManager : MonoBehaviour
 {
 	const float namePadding = 15f;
 	const float choiceSpacing = 10f;
@@ -37,7 +37,6 @@ public class DialogueManager : MonoBehaviour
 	bool addChar = false;
 
 	// lots of helper functions for unity events. fuck unity events.
-
 	public void SetSpeakerName(string speakerName)
 	{
 		this.speakerName = speakerName;
@@ -101,6 +100,12 @@ public class DialogueManager : MonoBehaviour
 
 	IEnumerator StartDialogueCoroutine(Conversation.Dialogue dialogue)
 	{
+		// invokes onDialogueStart event
+		if (dialogue.onDialogueStart != null)
+		{
+			dialogue.onDialogueStart.Invoke();
+		}
+
 		// reset effects
 		shakeIndexes.Clear();
 		wobbleIndexes.Clear();
@@ -245,8 +250,17 @@ public class DialogueManager : MonoBehaviour
 				Destroy(child.gameObject);
 			}
 
-			// invokes action attatched to choice
-			if (choiceMade.action != null) choiceMade.action.Invoke();
+			// invokes onDialogueEnd event
+			if (dialogue.onDialogueEnd != null)
+			{
+				dialogue.onDialogueEnd.Invoke();
+			}
+
+			// invokes onChose event
+			if (choiceMade.onChose != null)
+			{
+				choiceMade.onChose.Invoke();
+			}
 
 			// plays attatched dialogues
 			if (choiceMade.attatchedDialogues != null && choiceMade.attatchedDialogues.Length > 0)
@@ -279,9 +293,15 @@ public class DialogueManager : MonoBehaviour
 				yield return null;
 			}
 
+			// invokes onDialogueEnd event
+			if (dialogue.onDialogueEnd != null)
+			{
+				dialogue.onDialogueEnd.Invoke();
+			}
+
 			// hides continue arrow
 			continueArrow.SetActive(false);
-		}		
+		}
 	}
 
 	void Update()
