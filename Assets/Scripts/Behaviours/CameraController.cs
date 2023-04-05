@@ -14,7 +14,6 @@ public class CameraController : MonoBehaviour
 	public Transform yMin;
 	public Transform yMax;
 
-	
 	void Update()
     {
 		// get half the camera size
@@ -56,6 +55,7 @@ public class CameraController : MonoBehaviour
 			targetPosition.y = (yMin.position.y + yMax.position.y) / 2f;
 		}
 
+		// moves camera to target position
 		transform.position = targetPosition;
 	}
 }
