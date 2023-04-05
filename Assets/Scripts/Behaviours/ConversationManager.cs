@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class ConversationManager : MonoBehaviour
 {

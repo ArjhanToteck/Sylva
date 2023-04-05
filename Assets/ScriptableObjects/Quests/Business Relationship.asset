@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4611f8574d82b64f80e1ef07a57317e, type: 3}
   m_Name: Business Relationship
   m_EditorClassIdentifier: 
-  name: Business Relationship
-  description: "You are to meet a man named Agost\xFDn at the White Rose Inn. Find
-    him and talk to him."
+  name: Initiation
+  description: "You are to meet a man named Agost\xFDn in the White Rose Inn. Find
+    and talk to him."
   type: 0
   status: 0
+  progress:
+    totalSteps: 0
+    stepsCompleted: 0

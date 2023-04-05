@@ -167,15 +167,15 @@ GameObject:
   - component: {fileID: 4427108010399723543}
   - component: {fileID: 4427108010399723546}
   - component: {fileID: 4427108010399723545}
-  - component: {fileID: 4427108010399723544}
   - component: {fileID: 1435355604703065140}
+  - component: {fileID: 6797522091231878741}
   m_Layer: 5
   m_Name: ConversationManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4427108010399723543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -238,21 +238,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4427108010399723544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4427108010399723542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
-  m_EffectDistance: {x: 1, y: -1}
-  m_UseGraphicAlpha: 1
 --- !u!114 &1435355604703065140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,17 +256,21 @@ MonoBehaviour:
   continueArrow: {fileID: 2304878103830262295}
   choiceContainer: {fileID: 5415499985490881655}
   choicePrefab: {fileID: 318248616761030120, guid: 9efe0463cfb957a43949fbdae03c197e, type: 3}
-  speakerName: Name
-  dialogue: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.
-  interval: 0.1
-  speakerAnimator: {fileID: 0}
-  dialogueData:
-    rawText: 
-    TMPParsedText: 
-    plainText: 
-    chunks: []
+--- !u!114 &6797522091231878741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4427108010399723542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &4427108010712309456
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +417,7 @@ GameObject:
   - component: {fileID: 4427108010984359236}
   - component: {fileID: 4427108010984359239}
   - component: {fileID: 4427108010984359238}
-  - component: {fileID: 4427108010984359237}
+  - component: {fileID: 7827432421245557077}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -495,7 +484,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4427108010984359237
+--- !u!114 &7827432421245557077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -507,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EffectColor: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+  m_EffectColor: {r: 0.87058824, g: 0.87058824, b: 0.87058824, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
 --- !u!1 &5328605123691670412

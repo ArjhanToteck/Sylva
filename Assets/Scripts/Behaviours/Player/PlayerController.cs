@@ -83,8 +83,8 @@ public class PlayerController : MonoBehaviour
 		if (data.spells.Count > 0) spellSelectedBeforeAttack = data.spells[data.selectedSpell];
 
 		// adjusts healthbar to start
-		healthBar.setMaxHealth(data.maxHealth);
-		healthBar.setHealth(data.health);
+		healthBar.SetMaxHealth(data.maxHealth);
+		healthBar.SetHealth(data.health);
 	}
 
 	void Update()
@@ -329,7 +329,7 @@ public class PlayerController : MonoBehaviour
 
 		// subtracts damage from health
 		data.health -= damage;
-		healthBar.setHealth(data.health);
+		healthBar.SetHealth(data.health);
 
 		// hit cooldown
 		StartCoroutine(WaitForHitCooldown());

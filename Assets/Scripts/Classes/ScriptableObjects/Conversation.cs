@@ -5,7 +5,7 @@ using UltEvents;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Conversation", menuName = "Conversation", order = 1)]
+[CreateAssetMenu(fileName = "Conversation", menuName = "ScriptableObject/Conversation", order = 1)]
 public class Conversation : ScriptableObject
 {
 	public Dialogue[] conversation;

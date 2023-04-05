@@ -191,5 +191,8 @@ MonoBehaviour:
     onDialogueEnd:
       _PersistentCalls:
       - _Target: {fileID: 11400000, guid: cd9868c58afc3dc4394da78f37d1f2e6, type: 2}
+        _MethodName: CompleteQuest
+        _PersistentArguments: []
+      - _Target: {fileID: 11400000, guid: fc49cf54f2b9430449e977b37216e792, type: 2}
         _MethodName: StartQuest
         _PersistentArguments: []

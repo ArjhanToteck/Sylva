@@ -1,14 +1,13 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "Quest", menuName = "Quest", order = 1)]
+[CreateAssetMenu(fileName = "Quest", menuName = "ScriptableObject/Quest", order = 1)]
 [Serializable]
 public class Quest : ScriptableObject
 {
 	static List<Quest> quests = new List<Quest>();
+	public static QuestManager questManager;
 
 	public string name;
 	public string description;
@@ -63,10 +62,12 @@ public class Quest : ScriptableObject
 	public void StartQuest()
 	{
 		status = Status.Started;
+		questManager.StartQuest(this);
 	}
 
 	public void CompleteQuest()
 	{
 		status = Status.Complete;
+		questManager.CompleteQuest(this);
 	}
 }

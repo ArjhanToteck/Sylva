@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ChainWeapon", menuName = "Item/ChainWeapon", order = 1)]
+[CreateAssetMenu(fileName = "ChainWeapon", menuName = "ScriptableObject/Item/ChainWeapon", order = 1)]
 public class ChainWeapon : Weapon
 {
 	public Sprite chainSprite;

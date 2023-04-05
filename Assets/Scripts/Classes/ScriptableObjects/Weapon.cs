@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SwingWeapon", menuName = "Item/SwingWeapon", order = 1)]
+[CreateAssetMenu(fileName = "SwingWeapon", menuName = "ScriptableObject/Item/SwingWeapon", order = 1)]
 public class Weapon : Item
 {
 	public Sprite sprite;

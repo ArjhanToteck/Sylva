@@ -3,18 +3,20 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    [Header("Objects")]
-    public Image outline;
-    public Image fill;
-    public Image fillBackground;
-    public Image heart;
-    public Animator animator;
+	[Header("Objects")]
+	public Image outline;
+	public Image fill;
+	public Image fillBackground;
+	public Image heart;
+	public Animator animator;
 
-    [Header("Constants")]
-    public float healthPerWidth = 2;
-    public float fillOffset = 10;
+	[Header("Constants")]
+	public float healthPerWidth = 2;
+	public float fillOffset = 10;
+	public Color heartColor;
+	public Color deathColor;
 
-    public void setMaxHealth(float health = 10, bool healthAtMax = true)
+	public void SetMaxHealth(float health = 10, bool healthAtMax = true)
 	{
         // calculates width from offset, health, and health per width
         float width = (health * healthPerWidth) + fillOffset;
@@ -24,10 +26,10 @@ public class HealthBar : MonoBehaviour
         fillBackground.GetComponent<RectTransform>().sizeDelta = new Vector2(width, fillBackground.GetComponent<RectTransform>().sizeDelta.y);
         
         // if health is supposed to show at max, fill is adjusted
-        if(healthAtMax) fill.GetComponent<RectTransform>().sizeDelta = new Vector2(width, fill.GetComponent<RectTransform>().sizeDelta.y);
+        if(healthAtMax) SetHealth(health);
     }
 
-    public void setHealth(float health, bool healthAtMax = true)
+    public void SetHealth(float health)
     {
         // calculates width from offset, health, and health per width
         float width = (health * healthPerWidth) + fillOffset;
@@ -45,12 +47,12 @@ public class HealthBar : MonoBehaviour
         if(health <= 0)
 		{
             // sets heart color to gray to indicate death
-            heart.color = new Color(0.2078431f, 0.2078431f, 0.2078431f);
+            heart.color = deathColor;
 		}
         else
 		{
             // heart is red by default
-            heart.color = Color.red;
+            heart.color = heartColor;
 		}
     }
 }
