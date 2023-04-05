@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Business Relationship
   m_EditorClassIdentifier: 
   name: Initiation
-  description: "You are to meet a man named Agost\xFDn in the White Rose Inn. Find
-    and talk to him."
+  description: "You are to meet a man named Agost\xFDn here at the White Rose Inn.
+    Find and talk to him."
   type: 0
   status: 0
   progress:

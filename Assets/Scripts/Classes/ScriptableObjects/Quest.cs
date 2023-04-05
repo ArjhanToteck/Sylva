@@ -65,6 +65,12 @@ public class Quest : ScriptableObject
 		questManager.StartQuest(this);
 	}
 
+	public void UpdateQuest(string newDescription)
+	{
+		description = newDescription;
+		questManager.UpdateQuest(this);
+	}
+
 	public void CompleteQuest()
 	{
 		status = Status.Complete;
