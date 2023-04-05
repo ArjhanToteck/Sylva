@@ -1916,7 +1916,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907742027}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.75, z: -10}
+  m_LocalPosition: {x: 0, y: 6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2780,11 +2780,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &1464421864 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8682415504872545492, guid: e6a912a51aae11e43af1131f54fe79b8, type: 3}
-  m_PrefabInstance: {fileID: 8682415504577537195}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1464842759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3991,14 +3986,6 @@ PrefabInstance:
       propertyPath: yMin
       value: 
       objectReference: {fileID: 2068544894}
-    - target: {fileID: 2759042704935617863, guid: e6a912a51aae11e43af1131f54fe79b8, type: 3}
-      propertyPath: camera
-      value: 
-      objectReference: {fileID: 1464421864}
-    - target: {fileID: 2759042704935617863, guid: e6a912a51aae11e43af1131f54fe79b8, type: 3}
-      propertyPath: offset.z
-      value: -10
-      objectReference: {fileID: 0}
     - target: {fileID: 2759042704935617863, guid: e6a912a51aae11e43af1131f54fe79b8, type: 3}
       propertyPath: maxBoundary
       value: 

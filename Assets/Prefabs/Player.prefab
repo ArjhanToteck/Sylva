@@ -1969,10 +1969,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9017cf307aadfe43a9ba4cfa15f38f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: -10}
+  camera: {fileID: 8682415504872545492}
   player: {fileID: 8682415503203649535}
-  minBoundary: {fileID: 0}
-  maxBoundary: {fileID: 0}
+  xMin: {fileID: 0}
+  xMax: {fileID: 0}
+  yMin: {fileID: 0}
+  yMax: {fileID: 0}
 --- !u!1 &8682415504931290976
 GameObject:
   m_ObjectHideFlags: 0
