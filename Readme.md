@@ -1,9 +1,4 @@
-Starter Quest Ideas:
-Sneak into a prison and neutralize a target who can’t be trusted to keep quiet
-Destroy a rival gang’s gambling operation and kill everyone inside
-Collect extortion money from a non-cooperative business
-
-Plot
+# Plot
 The player is a member of an underground organization in the city of Castelon simply called “The Syndicate,” led by a mysterious figure referred to only as “The Director.” In the beginning, the player carries out jobs for the syndicate for money, which are given to him by a contact named Agostýn.
 
 Eventually, a job comes with a very high risk, but very high reward: they must protect a large unknown “shipment” from Castelon to Zakarra. For this job, Agostýn goes too.
@@ -25,3 +20,8 @@ The credits roll.
 In a post-credit scene, Agostýn informs the director, a man in a white cloak with a steel mask, about his and the player’s misadventure.
 
 “I am disappointed, but I am also sure our contact in Zakarra will understand. As for [player name]... I am pleased with the way he controlled the situation. Perhaps it is time we met.”
+
+# Starter Quest Ideas:
+Sneak into a prison and neutralize a target who can’t be trusted to keep quiet
+Destroy a rival gang’s gambling operation and kill everyone inside
+Collect extortion money from a non-cooperative business
