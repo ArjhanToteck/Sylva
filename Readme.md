@@ -1,3 +1,6 @@
+# Status
+I have abandoned this game because I don't like the story too much. I am now reusing all the systems I made for this game in [Fist of Ardor](https://github.com/ArjhanToteck/Fist-of-Ardor).
+
 # Plot
 The player is a member of an underground organization in the city of Castelon simply called “The Syndicate,” led by a mysterious figure referred to only as “The Director.” In the beginning, the player carries out jobs for the syndicate for money, which are given to him by a contact named Agostýn.
 
