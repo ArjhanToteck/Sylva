@@ -196,7 +196,7 @@ SpriteRenderer:
   m_SortingLayerID: -1736973053
   m_SortingLayer: -2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -540476664, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -634,7 +634,7 @@ SpriteRenderer:
   m_SortingLayerID: -1736973053
   m_SortingLayer: -2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -540476664, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -896,7 +896,7 @@ SpriteRenderer:
   m_SortingLayerID: -1736973053
   m_SortingLayer: -2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -540476664, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -996,7 +996,7 @@ SpriteRenderer:
   m_SortingLayerID: -1736973053
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1026938305, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17409020eee806e43bf28c3e472bd82e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1083,7 +1083,7 @@ SpriteRenderer:
   m_SortingLayerID: -1736973053
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1026938305, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17409020eee806e43bf28c3e472bd82e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1251,7 +1251,7 @@ SpriteRenderer:
   m_SortingLayerID: -1736973053
   m_SortingLayer: -2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1026938305, guid: d87d7784a3da27e4f8e71b2c8592bb41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17409020eee806e43bf28c3e472bd82e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
