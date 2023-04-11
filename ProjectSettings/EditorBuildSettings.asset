@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/SceneTemplates/LevelTemplate.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Prologue/Farm.unity
+    guid: 57c17690fcd94af4a98ef51f4e8f1b5f
+  - enabled: 1
+    path: Assets/Scenes/Forest.unity
+    guid: 792611073ff5dcd4eaa5aabab9dfbfbc
+  - enabled: 1
+    path: Assets/Scenes/Tavern.unity
+    guid: a828dd27abba1ba4b9c4a42c30b00826
+  - enabled: 1
+    path: Assets/Scenes/Prologue/FarmHouse.unity
+    guid: 26a771d4072e29f47b5ea9f5dee537b5
   m_configObjects: {}

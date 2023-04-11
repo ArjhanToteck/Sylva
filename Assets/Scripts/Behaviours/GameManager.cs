@@ -19,20 +19,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SceneTransition(Scene scene)
+    public void SceneTransition(string sceneName)
     {
         sceneTransitionPanel.gameObject.SetActive(true);
         sceneTransitionPanel.SetTrigger("fadeOut");
 
+        StartCoroutine(LoadSceneWhenReady());
+
         IEnumerator LoadSceneWhenReady()
         {
-
             while (!sceneTransitionPanel.GetCurrentAnimatorStateInfo(0).IsName("Done"))
             {
                 yield return null;
             }
 
-            SceneManager.LoadScene(scene.buildIndex);
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
