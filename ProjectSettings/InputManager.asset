@@ -358,8 +358,8 @@ InputManager:
     axis: 3
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Talk
-    descriptiveName: Talk keyboard
+    m_Name: Interact
+    descriptiveName: Interact keyboard
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: space
@@ -374,8 +374,8 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Talk
-    descriptiveName: 'Talk controller // TODO: set this'
+    m_Name: Interact
+    descriptiveName: 'Interact controller // TODO: set this'
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: space

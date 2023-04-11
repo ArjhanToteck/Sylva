@@ -1789,17 +1789,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4427108010399723543, guid: a0cd22d2ab1382f4d8b67254b779ec90, type: 3}
   m_PrefabInstance: {fileID: 705614075}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &705614077 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4427108010399723542, guid: a0cd22d2ab1382f4d8b67254b779ec90, type: 3}
-  m_PrefabInstance: {fileID: 705614075}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &705614078 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1435355604703065140, guid: a0cd22d2ab1382f4d8b67254b779ec90, type: 3}
   m_PrefabInstance: {fileID: 705614075}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 705614077}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 171b7a60c04f5f749937689e41993e1e, type: 3}
@@ -3837,10 +3832,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3156196815680920877, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: m_text
-      value: Talk
-      objectReference: {fileID: 0}
     - target: {fileID: 3156196816729100896, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
       propertyPath: m_Camera
       value: 
@@ -3931,7 +3922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3156196816729100908, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
       propertyPath: m_Name
-      value: InteractionPopup
+      value: ConversationPopup
       objectReference: {fileID: 0}
     - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
       propertyPath: conversation
@@ -3941,67 +3932,6 @@ PrefabInstance:
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 705614078}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.data[0]._Target
-      value: 
-      objectReference: {fileID: 705614077}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.data[1]._Target
-      value: 
-      objectReference: {fileID: 705614078}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.data[0]._MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.data[1]._MethodName
-      value: StartConversation
-      objectReference: {fileID: 0}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.data[0]._PersistentArguments.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.data[1]._PersistentArguments.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.data[0]._PersistentArguments.Array.data[0]._Int
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.data[0]._PersistentArguments.Array.data[0]._Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.data[1]._PersistentArguments.Array.data[0]._Type
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.data[1]._PersistentArguments.Array.data[1]._Type
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.data[1]._PersistentArguments.Array.data[0]._Object
-      value: 
-      objectReference: {fileID: 11400000, guid: 14240b4b37cabbc448acd3d5de8e97ae, type: 2}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.data[1]._PersistentArguments.Array.data[0]._String
-      value: Conversation, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      objectReference: {fileID: 0}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.data[1]._PersistentArguments.Array.data[1]._Object
-      value: 
-      objectReference: {fileID: 702515364}
-    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
-      propertyPath: action._PersistentCalls.Array.data[1]._PersistentArguments.Array.data[1]._String
-      value: UnityEngine.Animator, UnityEngine.AnimationModule, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
 --- !u!1001 &4505943272003067433

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3156196815680920876}
   - component: {fileID: 3156196815680920877}
   m_Layer: 5
-  m_Name: Talk
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Talk
+  m_text: Interact
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 51353741d8b57ef4d81603a50467c285, type: 2}
   m_sharedMaterial: {fileID: 468994420119924929, guid: 51353741d8b57ef4d81603a50467c285, type: 2}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 3156196816729100903}
   - component: {fileID: 3185561181009273474}
   m_Layer: 5
-  m_Name: ConversationPopup
+  m_Name: InteractionPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,10 +276,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8787e61e21da4cf46ad8fba714f1dddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: {fileID: 6894153728564634641}
-  conversation: {fileID: 0}
-  speakerAnimator: {fileID: 0}
-  dialogueManager: {fileID: 0}
+  label: {fileID: 6894153728564634641}
+  action:
+    _PersistentCalls: []
   triggered: 0
 --- !u!1 &3156196816744049554
 GameObject:
@@ -426,7 +425,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1562124643092293843}
   m_Layer: 5
-  m_Name: Content
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

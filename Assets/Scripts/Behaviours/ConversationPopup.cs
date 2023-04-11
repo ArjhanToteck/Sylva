@@ -1,29 +1,28 @@
+using UltEvents;
 using UnityEngine;
 
 public class ConversationPopup : MonoBehaviour
 {
-    public GameObject content;
-    public Conversation conversation;
-	public Animator speakerAnimator;
-	public ConversationManager dialogueManager;
+    public GameObject label;
+	public UltEvent action;
+
 	public bool triggered = false;
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (collider.CompareTag("Player"))
 		{
-			content.SetActive(true);
+			label.SetActive(true);
 			triggered = false;
 		}
 	}
 
 	void OnTriggerStay2D(Collider2D collider)
 	{
-		if (!triggered && Input.GetButton("Talk"))
+		if (!triggered && Input.GetButton("Interact"))
 		{
 			triggered = true;
-			dialogueManager.gameObject.SetActive(true);
-			dialogueManager.StartConversation(conversation, speakerAnimator);
+			action.Invoke();
 		}
 	}
 
@@ -31,7 +30,7 @@ public class ConversationPopup : MonoBehaviour
 	{
 		if (collider.CompareTag("Player"))
 		{
-			content.SetActive(false);
+			label.SetActive(false);
 			triggered = false;
 		}
 	}
