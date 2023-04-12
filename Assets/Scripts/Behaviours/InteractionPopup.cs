@@ -1,27 +1,23 @@
 using UltEvents;
 using UnityEngine;
 
-public class ConversationPopup : MonoBehaviour
+public class InteractionPopup : MonoBehaviour
 {
     public GameObject label;
 	public UltEvent action;
-
-	public bool triggered = false;
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		if (collider.CompareTag("Player"))
 		{
 			label.SetActive(true);
-			triggered = false;
 		}
 	}
 
 	void OnTriggerStay2D(Collider2D collider)
 	{
-		if (!triggered && Input.GetButton("Interact"))
+		if (Input.GetButton("Interact"))
 		{
-			triggered = true;
 			action.Invoke();
 		}
 	}
@@ -31,7 +27,6 @@ public class ConversationPopup : MonoBehaviour
 		if (collider.CompareTag("Player"))
 		{
 			label.SetActive(false);
-			triggered = false;
 		}
 	}
 }

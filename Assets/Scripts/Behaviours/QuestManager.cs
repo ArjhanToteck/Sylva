@@ -11,18 +11,19 @@ public class QuestManager : MonoBehaviour
 
 	public void StartQuest(Quest quest)
 	{
-		GameObject alert = Instantiate(alertPrefab);
+        // TODO: implement alerts for quests
+		//GameObject alert = Instantiate(alertPrefab);
 	}
 
 	public void UpdateQuest(Quest quest)
 	{
 
-		GameObject alert = Instantiate(alertPrefab);
+		//GameObject alert = Instantiate(alertPrefab);
 	}
 
 	public void CompleteQuest(Quest quest)
 	{
 
-		GameObject alert = Instantiate(alertPrefab);
+		//GameObject alert = Instantiate(alertPrefab);
 	}
 }

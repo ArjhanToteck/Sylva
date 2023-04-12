@@ -464,7 +464,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3156196816729100908, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
       propertyPath: m_Name
-      value: InteractionPopup
+      value: Entrance
       objectReference: {fileID: 0}
     - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
       propertyPath: action._PersistentCalls.Array.size

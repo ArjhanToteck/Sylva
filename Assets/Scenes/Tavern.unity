@@ -3980,6 +3980,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3156196816729100899, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3156196816729100899, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -4027,6 +4031,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3156196816729100899, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3156196816729100908, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
       propertyPath: m_Name
       value: InteractionPopup
@@ -4041,7 +4049,7 @@ PrefabInstance:
       objectReference: {fileID: 705614078}
     - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
       propertyPath: action._PersistentCalls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
       propertyPath: action._PersistentCalls.Array.data[0]._Target
@@ -4052,6 +4060,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 705614078}
     - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
+      propertyPath: action._PersistentCalls.Array.data[2]._Target
+      value: 
+      objectReference: {fileID: 3156196817394939100}
+    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
       propertyPath: action._PersistentCalls.Array.data[0]._MethodName
       value: SetActive
       objectReference: {fileID: 0}
@@ -4060,12 +4072,20 @@ PrefabInstance:
       value: StartConversation
       objectReference: {fileID: 0}
     - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
+      propertyPath: action._PersistentCalls.Array.data[2]._MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
       propertyPath: action._PersistentCalls.Array.data[0]._PersistentArguments.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
       propertyPath: action._PersistentCalls.Array.data[1]._PersistentArguments.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
+      propertyPath: action._PersistentCalls.Array.data[2]._PersistentArguments.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
       propertyPath: action._PersistentCalls.Array.data[0]._PersistentArguments.Array.data[0]._Int
@@ -4081,6 +4101,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
       propertyPath: action._PersistentCalls.Array.data[1]._PersistentArguments.Array.data[1]._Type
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
+      propertyPath: action._PersistentCalls.Array.data[2]._PersistentArguments.Array.data[0]._Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
+      propertyPath: action._PersistentCalls.Array.data[2]._PersistentArguments.Array.data[1]._Type
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
@@ -4100,8 +4128,30 @@ PrefabInstance:
       value: UnityEngine.Animator, UnityEngine.AnimationModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
+    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
+      propertyPath: action._PersistentCalls.Array.data[2]._PersistentArguments.Array.data[0]._Object
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
+      propertyPath: action._PersistentCalls.Array.data[2]._PersistentArguments.Array.data[0]._String
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
+      propertyPath: action._PersistentCalls.Array.data[2]._PersistentArguments.Array.data[1]._Object
+      value: 
+      objectReference: {fileID: 702515364}
+    - target: {fileID: 3185561181009273474, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
+      propertyPath: action._PersistentCalls.Array.data[2]._PersistentArguments.Array.data[1]._String
+      value: UnityEngine.Animator, UnityEngine.AnimationModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
+--- !u!1 &3156196817394939100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3156196816729100908, guid: 963d9db5bd4cef64eb07fa433a615642, type: 3}
+  m_PrefabInstance: {fileID: 3156196817394939099}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4505943272003067433
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4252,6 +4302,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6665069762372443885, guid: 1afc5161720ea154dab63ac4cc1c2e1a, type: 3}
+      propertyPath: sceneTransitionPanel
+      value: 
+      objectReference: {fileID: 893104563}
     - target: {fileID: 6665069762372443890, guid: 1afc5161720ea154dab63ac4cc1c2e1a, type: 3}
       propertyPath: m_RootOrder
       value: 0
