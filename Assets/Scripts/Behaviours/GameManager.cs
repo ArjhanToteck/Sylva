@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
                 yield return null;
             }
 
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadSceneAsync(sceneName);
         }
     }
 }

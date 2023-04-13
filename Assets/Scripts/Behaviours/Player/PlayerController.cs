@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
 
 		// adjusts healthbar to start
 		healthBar.SetMaxHealth(data.maxHealth);
-		healthBar.SetHealth(data.health);
+		healthBar.SetHealth(data.health, false);
 	}
 
 	void Update()

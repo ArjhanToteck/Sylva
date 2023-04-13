@@ -16,7 +16,7 @@ public class HealthBar : MonoBehaviour
 	public Color heartColor;
 	public Color deathColor;
 
-	public void SetMaxHealth(float health = 10, bool healthAtMax = true)
+    public void SetMaxHealth(float health = 10, bool healthAtMax = true)
 	{
         // calculates width from offset, health, and health per width
         float width = (health * healthPerWidth) + fillOffset;
@@ -26,10 +26,10 @@ public class HealthBar : MonoBehaviour
         fillBackground.GetComponent<RectTransform>().sizeDelta = new Vector2(width, fillBackground.GetComponent<RectTransform>().sizeDelta.y);
         
         // if health is supposed to show at max, fill is adjusted
-        if(healthAtMax) SetHealth(health);
+        if(healthAtMax) SetHealth(health, false);
     }
 
-    public void SetHealth(float health)
+    public void SetHealth(float health, bool animate = true)
     {
         // calculates width from offset, health, and health per width
         float width = (health * healthPerWidth) + fillOffset;
@@ -41,7 +41,7 @@ public class HealthBar : MonoBehaviour
         fill.GetComponent<RectTransform>().sizeDelta = new Vector2(width, fill.GetComponent<RectTransform>().sizeDelta.y);
 
         // plays animation for health change
-        animator.SetTrigger("healthBarChange");
+        if(animate) animator.SetTrigger("healthBarChange");
 
         // checks if health is zero
         if(health <= 0)
