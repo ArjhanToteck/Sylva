@@ -18,7 +18,6 @@ MonoBehaviour:
     speakerName: ???
     interpolatedText:
     - key: ${test}
-      valueCallback: 
     interval: 0.05
     choices:
     - text: "Are you Agost\xFDn?"

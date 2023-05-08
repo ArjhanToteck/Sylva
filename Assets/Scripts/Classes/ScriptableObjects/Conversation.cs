@@ -92,6 +92,7 @@ public class Conversation : ScriptableObject
 	public class InterpolatedText
 	{
 		public string key;
+
 		public SerializableCallback<string> valueCallback;
 	}
 }

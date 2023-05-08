@@ -5,6 +5,7 @@ using TMPro;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
+using static Conversation;
 
 public class ConversationManager : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class ConversationManager : MonoBehaviour
 		StartCoroutine(StartConversationCoroutine(conversation, speakerAnimator, true));
 	}
 
-	public void StartDialogue(Conversation.Dialogue dialogue, Animator speakerAnimator)
+	public void StartDialogue(Dialogue dialogue, Animator speakerAnimator)
 	{
 		FindObjectOfType<PlayerController>().controllable = false;
 
@@ -42,7 +43,7 @@ public class ConversationManager : MonoBehaviour
 		bool previouslyControllable = FindObjectOfType<PlayerController>().controllable;
 		FindObjectOfType<PlayerController>().StopControl();
 
-		foreach (Conversation.Dialogue dialogue in conversation.conversation)
+		foreach (Dialogue dialogue in conversation.conversation)
 		{
 			yield return StartCoroutine(StartDialogueCoroutine(dialogue, speakerAnimator));
 		}
@@ -57,15 +58,15 @@ public class ConversationManager : MonoBehaviour
 		}			
 	}
 
-	IEnumerator StartDialoguesCoroutine(Conversation.Dialogue[] dialogues, Animator speakerAnimator)
+	IEnumerator StartDialoguesCoroutine(Dialogue[] dialogues, Animator speakerAnimator)
 	{
-		foreach(Conversation.Dialogue dialogue in dialogues)
+		foreach(Dialogue dialogue in dialogues)
 		{
 			yield return StartCoroutine(StartDialogueCoroutine(dialogue, speakerAnimator));
 		}
 	}
 
-	IEnumerator StartDialogueCoroutine(Conversation.Dialogue dialogue, Animator speakerAnimator)
+	IEnumerator StartDialogueCoroutine(Dialogue dialogue, Animator speakerAnimator)
 	{
 		// invokes onDialogueStart event
 		if (dialogue.onDialogueStart != null)
@@ -79,6 +80,15 @@ public class ConversationManager : MonoBehaviour
 
 		// hides continue arrow
 		continueArrow.SetActive(false);
+
+		// interpolates text if needed
+		if(dialogue.interpolatedText != null && dialogue.interpolatedText.Count > 0)
+		{
+			foreach(InterpolatedText interpolatedText in dialogue.interpolatedText)
+			{
+				//dialogue.dialogue.Replace(interpolatedText.key, interpolatedText.valueCallback.Invoke());
+			}
+		}
 
 		// parses text
 		DialogueData dialogueData = GetDialogueData(dialogue.dialogue);
@@ -173,7 +183,7 @@ public class ConversationManager : MonoBehaviour
 		// checks if there are choices attatched
 		if (dialogue.choices != null && dialogue.choices.Length > 0)
 		{
-			Conversation.Choice choiceMade = null;
+			Choice choiceMade = null;
 
 			float totalHeight = dialogue.choices.Length * (choicePrefab.GetComponent<RectTransform>().rect.height + choiceSpacing);
 
@@ -181,7 +191,7 @@ public class ConversationManager : MonoBehaviour
 			for (int i = 0; i < dialogue.choices.Length; i++)
 			{
 				// last to first so the last choice is at the bottom
-				Conversation.Choice choice = dialogue.choices[dialogue.choices.Length - 1 - i];
+				Choice choice = dialogue.choices[dialogue.choices.Length - 1 - i];
 
 				// creates new choice object from prefab
 				GameObject choiceObject = Instantiate(choicePrefab);
