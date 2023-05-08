@@ -4,10 +4,23 @@ using System.Collections.Generic;
 using UltEvents;
 using UnityEngine;
 using UnityEngine.Events;
+using SerializableCallbacks;
 
 [CreateAssetMenu(fileName = "Conversation", menuName = "ScriptableObject/Conversation", order = 1)]
 public class Conversation : ScriptableObject
 {
+	public string varTest = "dick balls";
+
+	public string test()
+	{
+		return "dick balls";
+	}
+
+	public void test2(string p)
+	{
+		Debug.Log(p);
+	}
+
 	public Dialogue[] conversation;
 
 	[Serializable]
@@ -22,6 +35,9 @@ public class Conversation : ScriptableObject
 		/// The name of the person speaking. Leave empty or null to hide the name box.
 		/// </summary>
 		public string speakerName = "";
+
+		[SerializeField]
+		public List<InterpolatedText> interpolatedText;
 
 		/// <summary>
 		/// The time, in seconds, between every letter showing up.
@@ -70,5 +86,12 @@ public class Conversation : ScriptableObject
 		// will generally have one or the other, never both of these
 		public Dialogue[] attatchedDialogues;
 		public Conversation attatchedConversation;
+	}
+
+	[Serializable]
+	public class InterpolatedText
+	{
+		public string key;
+		public SerializableCallback<string> valueCallback;
 	}
 }

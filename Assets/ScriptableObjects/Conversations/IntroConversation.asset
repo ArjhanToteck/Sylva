@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5541c499fbe4a844eae9d948508043ea, type: 3}
   m_Name: IntroConversation
   m_EditorClassIdentifier: 
+  varTest: dick balls
   conversation:
-  - dialogue: <color=orange><i>Salutos.</i></color>
+  - dialogue: <color=orange><i>Salutos, ${test}.</i></color>
     speakerName: ???
+    interpolatedText:
+    - key: ${test}
+      valueCallback: 
     interval: 0.05
     choices:
     - text: "Are you Agost\xFDn?"
@@ -30,6 +34,7 @@ MonoBehaviour:
       _PersistentCalls: []
   - dialogue: Correct. I would assume you are the new mercenary?
     speakerName: "Agost\xFDn"
+    interpolatedText: []
     interval: 0.05
     choices:
     - text: That's me.
@@ -55,6 +60,7 @@ MonoBehaviour:
       _PersistentCalls: []
   - dialogue: Right. Well, now that we're well acquainted, let's talk <color=#03c6fc>business</color>.
     speakerName: "Agost\xFDn"
+    interpolatedText: []
     interval: 0.05
     choices: []
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
@@ -67,6 +73,7 @@ MonoBehaviour:
       <color=red>desperate</color>, you're <color=red>exceptionally daring</color>,
       or you just <color=red>don't know what you're getting into</color>.
     speakerName: "Agost\xFDn"
+    interpolatedText: []
     interval: 0.05
     choices: []
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
@@ -77,6 +84,7 @@ MonoBehaviour:
       _PersistentCalls: []
   - dialogue: So, which is it?
     speakerName: "Agost\xFDn"
+    interpolatedText: []
     interval: 0.05
     choices:
     - text: I need the money.
@@ -85,6 +93,7 @@ MonoBehaviour:
       attatchedDialogues:
       - dialogue: Well, then, you've certainly chosen the right profession.
         speakerName: "Agost\xFDn"
+        interpolatedText: []
         interval: 0.05
         choices: []
         talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
@@ -100,6 +109,7 @@ MonoBehaviour:
       attatchedDialogues:
       - dialogue: Well...
         speakerName: "Agost\xFDn"
+        interpolatedText: []
         interval: 0.05
         choices: []
         talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
@@ -116,6 +126,7 @@ MonoBehaviour:
       - dialogue: That's quite alright. We could certainly use <color=red>stupid
           people</color>.
         speakerName: "Agost\xFDn"
+        interpolatedText: []
         interval: 0.05
         choices: []
         talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
@@ -135,6 +146,7 @@ MonoBehaviour:
       to <color=red>not kill yourself</color>, then we'll have ourselves a <color=#03c6fc><wobble>nice,
       beneficial partnership</color></wobble>.
     speakerName: "Agost\xFDn"
+    interpolatedText: []
     interval: 0.05
     choices:
     - text: What job?
@@ -161,6 +173,7 @@ MonoBehaviour:
   - dialogue: 'A <color=red>rival</color> thought it was a good idea to set up a
       little gambling den in our side of the city. '
     speakerName: "Agost\xFDn"
+    interpolatedText: []
     interval: 0.05
     choices: []
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
@@ -171,6 +184,7 @@ MonoBehaviour:
       _PersistentCalls: []
   - dialogue: I want you to find them and <shake><color=red>kill them all</color></shake>.
     speakerName: "Agost\xFDn"
+    interpolatedText: []
     interval: 0.05
     choices: []
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
@@ -182,6 +196,7 @@ MonoBehaviour:
   - dialogue: You can keep whatever you find there, and I'll throw in a nice sum
       of <color=#03c6fc>escudos</color> as a bonus.
     speakerName: "Agost\xFDn"
+    interpolatedText: []
     interval: 0.05
     choices: []
     talkingClip: {fileID: 7400000, guid: 1be12d9dac777fd41bdfde008eeb80e5, type: 2}
