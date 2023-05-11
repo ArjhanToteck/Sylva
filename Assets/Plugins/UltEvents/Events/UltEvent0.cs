@@ -30,7 +30,7 @@ namespace UltEvents
     /// This is a more versatile and user friendly implementation than <see cref="UnityEvent"/>.
     /// </summary>
     [Serializable]
-    public sealed class UltEvent : UltEventBase, IUltEvent
+    public partial class UltEvent : UltEventBase, IUltEvent
     {
         /************************************************************************************************************************/
         #region Fields and Properties

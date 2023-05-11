@@ -4,28 +4,25 @@ using System.Collections.Generic;
 using UltEvents;
 using UnityEngine;
 using UnityEngine.Events;
-using SerializableCallbacks;
 
 [CreateAssetMenu(fileName = "Conversation", menuName = "ScriptableObject/Conversation", order = 1)]
 public class Conversation : ScriptableObject
 {
-	public string varTest = "dick balls";
-
-	public string test()
-	{
-		return "dick balls";
-	}
-
-	public void test2(string p)
-	{
-		Debug.Log(p);
-	}
+	/// <summary>
+	/// If this event returns false, the conversation is not executed.
+	/// </summary>
+	public UltEvent executionCondition = null;
 
 	public Dialogue[] conversation;
 
 	[Serializable]
 	public class Dialogue
 	{
+		/// <summary>
+		/// If this event returns false, the dialogue is not executed.
+		/// </summary>
+		public UltEvent executionCondition = null;
+
 		/// <summary>
 		/// The actual spoken lines.
 		/// </summary>
@@ -81,7 +78,7 @@ public class Conversation : ScriptableObject
 		/// <summary>
 		/// This action is performed when this choice is made.
 		/// </summary>
-		public UltEvent onChose;
+		public UltEvent onChoose;
 
 		// will generally have one or the other, never both of these
 		public Dialogue[] attatchedDialogues;
@@ -93,6 +90,6 @@ public class Conversation : ScriptableObject
 	{
 		public string key;
 
-		public SerializableCallback<string> valueCallback;
+		public UltEvent valueCallback;
 	}
 }

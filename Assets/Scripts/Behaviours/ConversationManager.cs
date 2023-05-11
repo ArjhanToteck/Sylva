@@ -82,16 +82,18 @@ public class ConversationManager : MonoBehaviour
 		continueArrow.SetActive(false);
 
 		// interpolates text if needed
+		string interpolatedDialogue = dialogue.dialogue;
+
 		if(dialogue.interpolatedText != null && dialogue.interpolatedText.Count > 0)
 		{
 			foreach(InterpolatedText interpolatedText in dialogue.interpolatedText)
 			{
-				//dialogue.dialogue.Replace(interpolatedText.key, interpolatedText.valueCallback.Invoke());
+				interpolatedDialogue = interpolatedDialogue.Replace(interpolatedText.key, interpolatedText.valueCallback.InvokeWithCallback<string>());
 			}
 		}
 
 		// parses text
-		DialogueData dialogueData = GetDialogueData(dialogue.dialogue);
+		DialogueData dialogueData = GetDialogueData(interpolatedDialogue);
 
 		// sets text and name
 		textObject.text = dialogueData.TMPParsedText;
@@ -172,7 +174,7 @@ public class ConversationManager : MonoBehaviour
 		}
 
 		// makes sure all characters are shown at the end
-		textObject.maxVisibleCharacters = dialogue.dialogue.Length;
+		textObject.maxVisibleCharacters = interpolatedDialogue.Length;
 
 		// checks if there is an attatched speaker animator and animation for when finished talking
 		if (!!speakerAnimator && !!dialogue.doneTalkingClip)
@@ -234,9 +236,9 @@ public class ConversationManager : MonoBehaviour
 			}
 
 			// invokes onChose event
-			if (choiceMade.onChose != null)
+			if (choiceMade.onChoose != null)
 			{
-				choiceMade.onChose.Invoke();
+				choiceMade.onChoose.Invoke();
 			}
 
 			// plays attatched dialogues

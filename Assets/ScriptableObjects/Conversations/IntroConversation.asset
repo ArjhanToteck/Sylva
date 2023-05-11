@@ -18,6 +18,11 @@ MonoBehaviour:
     speakerName: ???
     interpolatedText:
     - key: ${test}
+      valueCallback:
+        _PersistentCalls:
+        - _Target: {fileID: 11400000}
+          _MethodName: test
+          _PersistentArguments: []
     interval: 0.05
     choices:
     - text: "Are you Agost\xFDn?"

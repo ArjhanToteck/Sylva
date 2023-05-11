@@ -1,11 +1,5 @@
 {
   "dependencies": {
-    "com.github.siccity.serializablecallback": {
-      "version": "file:SerializableCallback",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
-    },
     "com.unity.2d.animation": {
       "version": "7.0.6",
       "depth": 0,
